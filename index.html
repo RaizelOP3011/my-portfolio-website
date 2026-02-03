@@ -7,9 +7,14 @@
   <meta name="description" content="Rakshit Raj Chauhan, Advocate (Punjab & Haryana High Court). Civil & Criminal Litigation, NDPS, Land Acquisition, Commercial Recovery." />
   <meta name="theme-color" content="#070812" />
 
+  <!-- Favicons (put these files in repo root) -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
   <style>
     :root{
-      --bg0:#05050f;
+      --bg0:#04040b;
       --bg1:#070812;
       --fg:rgba(255,255,255,.92);
       --mut:rgba(255,255,255,.62);
@@ -18,11 +23,12 @@
       --card:rgba(255,255,255,.06);
       --card2:rgba(0,0,0,.22);
       --shadow: 0 28px 110px rgba(0,0,0,.62);
-      --r:20px;
+      --r:22px;
 
-      --acc1:#7aa6ff;  /* royal blue */
-      --acc2:#ffd37a;  /* gold */
-      --acc3:#b48cff;  /* violet */
+      --royal:#8ab2ff;      /* royal blue */
+      --violet:#b88cff;     /* violet */
+      --gold:#ffd37a;       /* gold */
+      --pink:#ff4fd8;       /* accent */
     }
 
     *{box-sizing:border-box}
@@ -30,22 +36,22 @@
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      color: var(--fg);
+      color:var(--fg);
       background:
-        radial-gradient(1200px 900px at 15% 18%, rgba(122,166,255,.12), transparent 60%),
-        radial-gradient(1100px 860px at 85% 18%, rgba(180,140,255,.10), transparent 60%),
-        radial-gradient(1000px 700px at 60% 90%, rgba(255,211,122,.09), transparent 62%),
+        radial-gradient(1200px 900px at 12% 16%, rgba(138,178,255,.12), transparent 60%),
+        radial-gradient(1100px 860px at 88% 18%, rgba(184,140,255,.10), transparent 60%),
+        radial-gradient(1000px 700px at 55% 90%, rgba(255,211,122,.10), transparent 62%),
         linear-gradient(180deg, var(--bg1), var(--bg0));
       overflow-x:hidden;
     }
 
-    /* Animated aurora */
+    /* Premium moving background */
     .aurora{
       position:fixed; inset:-28%;
       background:
-        radial-gradient(circle at 20% 25%, rgba(122,166,255,.22), transparent 56%),
-        radial-gradient(circle at 82% 32%, rgba(180,140,255,.20), transparent 58%),
-        radial-gradient(circle at 55% 86%, rgba(255,211,122,.14), transparent 60%);
+        radial-gradient(circle at 20% 25%, rgba(138,178,255,.24), transparent 56%),
+        radial-gradient(circle at 82% 32%, rgba(184,140,255,.22), transparent 58%),
+        radial-gradient(circle at 55% 86%, rgba(255,211,122,.16), transparent 60%);
       filter: blur(20px);
       opacity:.85;
       animation: drift 16s ease-in-out infinite alternate;
@@ -57,17 +63,15 @@
       100%{ transform: translate3d(2%, 2%, 0) scale(1.06) rotate(2deg); }
     }
 
-    /* Grain */
+    /* Grain + scanlines like premium portfolio sites */
     .grain{
       pointer-events:none;
       position:fixed; inset:0;
-      opacity:.16;
+      opacity:.14;
       mix-blend-mode:overlay;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.20'/%3E%3C/svg%3E");
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
       z-index:1;
     }
-
-    /* Subtle moving lines */
     .scan{
       position:fixed; inset:0;
       background: repeating-linear-gradient(
@@ -75,20 +79,20 @@
         rgba(255,255,255,.05),
         rgba(255,255,255,.05) 1px,
         rgba(0,0,0,0) 4px,
-        rgba(0,0,0,0) 8px
+        rgba(0,0,0,0) 9px
       );
       opacity:.08;
       animation: scan 10s linear infinite;
       pointer-events:none;
       z-index:1;
     }
-    @keyframes scan { from{transform: translateY(0)} to{transform: translateY(80px)} }
+    @keyframes scan { from{transform: translateY(0)} to{transform: translateY(90px)} }
 
-    /* Particles canvas */
+    /* Particles */
     #fx{
       position:fixed; inset:0;
       pointer-events:none;
-      opacity:.85;
+      opacity:.80;
       mix-blend-mode:screen;
       z-index:2;
     }
@@ -98,20 +102,20 @@
       position:fixed; inset:0;
       pointer-events:none;
       background: radial-gradient(520px 520px at var(--mx,50%) var(--my,30%),
-        rgba(122,166,255,.12), transparent 60%);
+        rgba(138,178,255,.12), transparent 60%);
       mix-blend-mode:screen;
       opacity:.9;
       z-index:2;
     }
 
     a{color:inherit}
-    .wrap{max-width:1140px; margin:0 auto; padding:22px 18px 88px; position:relative; z-index:3;}
+    .wrap{max-width:1140px; margin:0 auto; padding:18px 18px 90px; position:relative; z-index:3;}
 
     /* NAV */
     .nav{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(14px);
-      background: rgba(7,8,18,.60);
+      background: rgba(7,8,18,.62);
       border-bottom:1px solid rgba(255,255,255,.08);
     }
     .nav-inner{
@@ -122,18 +126,17 @@
     }
     .brand{
       display:flex; align-items:center; gap:10px;
-      font-weight:800;
-      letter-spacing:.25px;
+      font-weight:850;
+      letter-spacing:.2px;
     }
     .mark{
-      width:34px; height:34px;
+      width:36px; height:36px;
       border-radius:12px;
       border:1px solid rgba(255,255,255,.14);
       background: linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.02));
       display:grid; place-items:center;
       box-shadow: 0 14px 60px rgba(0,0,0,.40);
-      position:relative;
-      overflow:hidden;
+      position:relative; overflow:hidden;
     }
     .mark::after{
       content:"";
@@ -143,11 +146,11 @@
     }
     .mark span{position:relative; font-size:13px}
     .navlinks{
-      display:flex; align-items:center; gap:16px;
+      display:flex; align-items:center; gap:14px;
       color: var(--mut);
       font-size: 13px;
     }
-    .navlinks a{ text-decoration:none; padding:8px 8px; border-radius:10px; }
+    .navlinks a{ text-decoration:none; padding:8px 10px; border-radius:12px; }
     .navlinks a:hover{ color: rgba(255,255,255,.88); background: rgba(255,255,255,.05); }
 
     .btn{
@@ -160,8 +163,7 @@
       display:inline-flex; align-items:center; gap:8px;
       transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
       user-select:none;
-      position:relative;
-      overflow:hidden;
+      position:relative; overflow:hidden;
     }
     .btn:hover{
       transform: translateY(-1px);
@@ -169,23 +171,23 @@
       border-color: rgba(255,255,255,.22);
     }
     .btn.primary{
-      background: linear-gradient(90deg, rgba(122,166,255,.22), rgba(180,140,255,.16), rgba(255,211,122,.12));
+      background: linear-gradient(90deg, rgba(138,178,255,.22), rgba(184,140,255,.16), rgba(255,211,122,.12));
       border-color: rgba(255,255,255,.20);
     }
 
     /* HERO */
-    .hero{padding:62px 0 16px;}
+    .hero{padding:64px 0 10px;}
     .kicker{
       color: rgba(255,255,255,.66);
       font-size: 12.5px;
       letter-spacing: .24em;
       text-transform: uppercase;
-      display:flex; flex-wrap:wrap; gap:10px;
+      display:flex; flex-wrap:wrap; gap:12px;
       align-items:center;
     }
-    .dot{
-      width:6px;height:6px;border-radius:50%;
-      background: rgba(255,211,122,.85);
+    .kdot{
+      width:7px;height:7px;border-radius:50%;
+      background: rgba(255,211,122,.90);
       box-shadow: 0 0 0 0 rgba(255,211,122,.25);
       animation: pulse 1.7s infinite;
       display:inline-block;
@@ -196,14 +198,15 @@
       100%{box-shadow:0 0 0 0 rgba(255,211,122,0)}
     }
 
-    h1{
-      margin:14px 0 10px;
-      font-size: clamp(36px, 4.8vw, 68px);
+    .headline{
+      margin:16px 0 10px;
+      font-size: clamp(36px, 4.8vw, 70px);
       line-height:1.02;
-      letter-spacing:-1.1px;
+      letter-spacing:-1.15px;
       text-shadow: 0 20px 70px rgba(0,0,0,.58);
     }
 
+    /* Split word reveal */
     .split span{
       display:inline-block;
       transform: translateY(12px);
@@ -211,59 +214,54 @@
       filter: blur(2px);
       animation: rise 820ms cubic-bezier(.2,.85,.2,1) forwards;
     }
-    @keyframes rise{
-      to{ transform: translateY(0); opacity:1; filter: blur(0); }
-    }
+    @keyframes rise{ to{ transform: translateY(0); opacity:1; filter: blur(0); } }
 
     .sub{
-      max-width: 75ch;
+      max-width: 78ch;
       color: var(--mut);
       font-size: 15.8px;
-      line-height:1.75;
+      line-height:1.78;
       margin:0;
     }
+    .hero-cta{ margin-top:18px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
 
-    .hero-cta{
-      margin-top:18px;
-      display:flex; gap:10px; flex-wrap:wrap;
-      align-items:center;
-    }
-
-    .statrow{
-      margin-top:22px;
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-    @media (max-width: 860px){ .statrow{grid-template-columns:1fr} }
-
-    .stat{
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.18);
-      border-radius: var(--r);
-      padding: 14px 14px;
-      box-shadow: var(--shadow);
+    /* Moving marquee (DylanBrouwer vibe) */
+    .marquee{
+      margin:30px 0 0;
+      border-top:1px solid rgba(255,255,255,.10);
+      border-bottom:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.12);
       overflow:hidden;
-      position:relative;
+      border-radius: 16px;
     }
-    .stat::after{
-      content:"";
-      position:absolute; inset:-60px -80px;
-      background: radial-gradient(circle at 30% 35%, rgba(122,166,255,.14), transparent 55%),
-                  radial-gradient(circle at 70% 70%, rgba(255,211,122,.10), transparent 60%);
-      opacity:.7;
-      pointer-events:none;
+    .track{
+      display:flex;
+      gap:50px;
+      padding:16px 0;
+      width:max-content;
+      animation: scroll 18s linear infinite;
+      will-change: transform;
     }
-    .stat b{display:block; font-size: 14px; letter-spacing:.14em; text-transform:uppercase; color: rgba(255,255,255,.66); position:relative;}
-    .stat span{display:block; margin-top:6px; color: rgba(255,255,255,.88); font-size: 14.5px; line-height:1.6; position:relative;}
+    @keyframes scroll{ from{transform: translateX(0)} to{transform: translateX(-50%)} }
+    .mitem{
+      font-weight:850;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      font-size: 12.5px;
+      color: rgba(255,255,255,.72);
+      display:flex; align-items:center; gap:10px;
+      white-space:nowrap;
+    }
+    .spark{
+      width:6px;height:6px;border-radius:50%;
+      background: rgba(138,178,255,.9);
+      box-shadow: 0 0 20px rgba(138,178,255,.35);
+    }
+    .marquee:hover .track{ animation-play-state: paused; }
 
-    /* SECTIONS */
-    section{padding:54px 0;}
-    .grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
+    /* Cards + layout */
+    section{padding:56px 0;}
+    .grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     @media (max-width: 900px){ .grid{grid-template-columns:1fr} }
 
     .card{
@@ -278,9 +276,11 @@
     .card::after{
       content:"";
       position:absolute; inset:-90px -120px;
-      background: radial-gradient(circle at 22% 28%, rgba(180,140,255,.10), transparent 55%),
-                  radial-gradient(circle at 78% 72%, rgba(122,166,255,.10), transparent 58%);
-      opacity:.7;
+      background:
+        radial-gradient(circle at 22% 28%, rgba(184,140,255,.10), transparent 55%),
+        radial-gradient(circle at 78% 72%, rgba(138,178,255,.10), transparent 58%),
+        radial-gradient(circle at 55% 88%, rgba(255,211,122,.08), transparent 60%);
+      opacity:.75;
       pointer-events:none;
     }
     .card > *{position:relative}
@@ -300,11 +300,32 @@
     .p{
       margin:0;
       color: var(--mut);
-      line-height:1.75;
+      line-height:1.78;
       font-size: 14.6px;
     }
 
-    /* Practice list */
+    .profile{
+      display:flex; gap:14px; align-items:center;
+      padding:14px;
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      margin-top:12px;
+    }
+    .avatar{
+      width:72px; height:72px; border-radius: 18px;
+      border:1px solid rgba(255,255,255,.12);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.02)),
+        url("assets/profile.jpg") center/cover no-repeat;
+      box-shadow: 0 14px 60px rgba(0,0,0,.35);
+      flex:0 0 auto;
+    }
+    .who b{display:block; font-size:16px}
+    .who span{display:block; color: var(--mut); font-size:13.5px; margin-top:4px}
+    .who em{font-style:normal; color: rgba(255,211,122,.82)}
+
+    /* List tiles */
     .list{margin:12px 0 0; padding:0; list-style:none; display:grid; gap:10px;}
     .li{
       display:flex; justify-content:space-between; gap:12px;
@@ -315,10 +336,10 @@
       transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
     }
     .li:hover{ transform: translateY(-2px); border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.06); }
-    .li b{font-weight:700}
+    .li b{font-weight:780}
     .li span{color: rgba(255,255,255,.58); font-size: 13px}
 
-    /* Sticky approach */
+    /* Sticky “approach” block like portfolio about pages */
     .sticky-wrap{
       display:grid;
       grid-template-columns: .95fr 1.05fr;
@@ -343,8 +364,6 @@
       letter-spacing:-.7px;
       line-height:1.1;
     }
-    .sticky-left p{margin:0; color: var(--mut); line-height:1.75; font-size:14.6px;}
-
     .steps{display:grid; gap: 12px;}
     .step{
       border:1px solid rgba(255,255,255,.12);
@@ -361,25 +380,15 @@
       text-transform:uppercase;
       color: rgba(255,255,255,.60);
     }
-    .step h3{
-      margin:8px 0 8px;
-      font-size: 19px;
-      letter-spacing:-.3px;
-    }
-    .step p{
-      margin:0;
-      color: rgba(255,255,255,.62);
-      line-height:1.72;
-      font-size:14px;
-    }
+    .step h3{ margin:8px 0 8px; font-size: 19px; letter-spacing:-.3px; }
+    .step p{ margin:0; color: rgba(255,255,255,.62); line-height:1.72; font-size:14px; }
 
-    /* Reveal animations */
+    /* Reveal */
     .reveal{opacity:0; transform: translateY(12px); filter: blur(2px); transition: opacity 650ms ease, transform 650ms ease, filter 650ms ease;}
     .reveal.on{opacity:1; transform: translateY(0); filter: blur(0);}
 
-    /* Footer */
     footer{
-      margin-top:54px;
+      margin-top:56px;
       padding-top:18px;
       border-top:1px solid rgba(255,255,255,.10);
       color: rgba(255,255,255,.56);
@@ -391,7 +400,6 @@
     }
     .mono{font-variant-numeric: tabular-nums; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
 
-    /* Mobile nav cleanup */
     @media (max-width: 780px){
       .navlinks a:not(.btn){display:none;}
     }
@@ -410,15 +418,15 @@
       <div class="brand">
         <div class="mark"><span>R</span></div>
         <div>
-          <div style="font-size:13.8px; line-height:1; font-weight:800;">Rakshit Raj Chauhan</div>
+          <div style="font-size:13.8px; line-height:1; font-weight:850;">Rakshit Raj Chauhan</div>
           <div style="font-size:12px; color:rgba(255,255,255,.55); line-height:1.25;">Advocate</div>
         </div>
       </div>
 
       <nav class="navlinks">
+        <a href="#about">About</a>
         <a href="#practice">Practice</a>
         <a href="#approach">Approach</a>
-        <a href="#profile">Profile</a>
         <a href="#contact">Contact</a>
         <a class="btn primary" href="#contact">Let’s talk ↗</a>
       </nav>
@@ -426,83 +434,121 @@
   </header>
 
   <main class="wrap">
-    <section class="hero">
-      <div class="kicker"><span class="dot"></span> Gurugram • Punjab & Haryana High Court</div>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="kicker"><span class="kdot"></span> Gurugram • Punjab & Haryana High Court</div>
 
-      <h1 class="split" id="headline">
-        <span>Litigation</span> <span>with</span> <span>clarity.</span><br/>
-        <span>Drafting</span> <span>with</span> <span>precision.</span>
+      <h1 class="headline split" id="headline">
+        <span>Strategy</span> <span>first.</span> <span>Procedure</span> <span>always.</span><br/>
+        <span>Arguments</span> <span>with</span> <span>clarity.</span>
       </h1>
 
       <p class="sub">
-        I represent clients in civil and criminal matters with a procedure-first approach: disciplined pleadings,
-        evidence-ready strategy, and decisive hearing preparation.
+        I represent clients across civil and criminal matters with disciplined drafting, evidence-ready preparation,
+        and a litigation-first approach that prioritises outcomes.
       </p>
 
       <div class="hero-cta">
         <a class="btn primary" href="#contact">Book a consult</a>
         <a class="btn" href="#" id="copyLink">Copy website link</a>
-        <a class="btn" href="#practice">Explore practice</a>
+        <a class="btn" href="#practice">View practice</a>
       </div>
 
-      <div class="statrow reveal">
-        <div class="stat">
-          <b>Courts</b>
-          <span>Gurugram • Nuh • Punjab & Haryana High Court</span>
-        </div>
-        <div class="stat">
-          <b>Focus</b>
-          <span>Civil • Criminal • NDPS • Land Acquisition • Recovery</span>
-        </div>
-        <div class="stat">
-          <b>Style</b>
-          <span>Clear chronology • clean annexures • strong interim strategy</span>
+      <!-- Marquee band (portfolio vibe) -->
+      <div class="marquee" aria-hidden="true">
+        <div class="track" id="track">
+          <div class="mitem"><span class="spark"></span> Civil Litigation</div>
+          <div class="mitem"><span class="spark"></span> Criminal Defense</div>
+          <div class="mitem"><span class="spark"></span> NDPS Matters</div>
+          <div class="mitem"><span class="spark"></span> Land Acquisition</div>
+          <div class="mitem"><span class="spark"></span> Commercial Recovery</div>
+          <div class="mitem"><span class="spark"></span> Drafting & Strategy</div>
+
+          <!-- duplicated for seamless scroll -->
+          <div class="mitem"><span class="spark"></span> Civil Litigation</div>
+          <div class="mitem"><span class="spark"></span> Criminal Defense</div>
+          <div class="mitem"><span class="spark"></span> NDPS Matters</div>
+          <div class="mitem"><span class="spark"></span> Land Acquisition</div>
+          <div class="mitem"><span class="spark"></span> Commercial Recovery</div>
+          <div class="mitem"><span class="spark"></span> Drafting & Strategy</div>
         </div>
       </div>
     </section>
 
+    <!-- ABOUT -->
+    <section id="about" class="reveal">
+      <div class="grid">
+        <div class="card">
+          <div class="title">Behind the work</div>
+          <div class="big">A litigation-first mindset</div>
+          <p class="p">
+            I focus on what wins cases: chronology, maintainability, procedure, evidence, and relief.
+            Clean pleadings and strong annexures reduce noise — and make arguments sharper.
+          </p>
+
+          <div class="profile">
+            <div class="avatar" title="Add your photo: assets/profile.jpg"></div>
+            <div class="who">
+              <b>Rakshit Raj Chauhan</b>
+              <span><em>Advocate</em> • Gurugram, Haryana</span>
+              <span class="mono">rakshitrajchauhan.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="title">Working style</div>
+          <div class="big">How I take a brief</div>
+          <p class="p">For speed and accuracy, the file must be structured. This is the format that works best:</p>
+          <ul class="list">
+            <li class="li"><b>Chronology</b><span>dates + events in 1–2 pages</span></li>
+            <li class="li"><b>Documents</b><span>PDF, properly named, page-numbered</span></li>
+            <li class="li"><b>Relief sought</b><span>what you want the court to grant</span></li>
+            <li class="li"><b>Urgency</b><span>next date / interim requirement</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRACTICE -->
     <section id="practice" class="reveal">
       <div class="grid">
         <div class="card">
           <div class="title">Practice</div>
-          <div class="big">Areas of work</div>
-          <p class="p">Focused practice across trial courts and the High Court — where strategy is backed by procedure and proof.</p>
-
+          <div class="big">Matters handled</div>
+          <p class="p">Focused practice across trial courts and the High Court.</p>
           <ul class="list">
             <li class="li"><b>Civil Litigation</b><span>injunctions • property • declarations</span></li>
             <li class="li"><b>Criminal Defense</b><span>bail • trial • quashing</span></li>
-            <li class="li"><b>NDPS Matters</b><span>bail • trial • compliance strategy</span></li>
+            <li class="li"><b>NDPS</b><span>bail • trial • procedural compliance</span></li>
             <li class="li"><b>Land Acquisition</b><span>references • enhancement • writs</span></li>
             <li class="li"><b>Commercial & Recovery</b><span>NI-138 • suits • execution</span></li>
           </ul>
         </div>
 
         <div class="card">
-          <div class="title">Working method</div>
-          <div class="big">How I take a brief</div>
-          <p class="p">
-            Best results come from a disciplined file: documents, dates, admissions, and relief. If the file is clean,
-            the argument becomes simple.
-          </p>
-
+          <div class="title">What you get</div>
+          <div class="big">Clear deliverables</div>
+          <p class="p">Clients typically need clarity + speed. These are the outcomes I optimise for.</p>
           <ul class="list">
-            <li class="li"><b>Step 1</b><span>Chronology + documents (PDF)</span></li>
-            <li class="li"><b>Step 2</b><span>Relief sought + urgency + forum</span></li>
-            <li class="li"><b>Step 3</b><span>Drafting plan + hearing roadmap</span></li>
-            <li class="li"><b>Step 4</b><span>Follow-through: compliance / execution</span></li>
+            <li class="li"><b>Hearing roadmap</b><span>what matters on the next date</span></li>
+            <li class="li"><b>Drafting quality</b><span>tight pleadings, clean annexures</span></li>
+            <li class="li"><b>Interim strategy</b><span>urgency, balance of convenience, harm</span></li>
+            <li class="li"><b>Follow-through</b><span>compliance, execution, next steps</span></li>
           </ul>
         </div>
       </div>
     </section>
 
+    <!-- APPROACH (sticky, portfolio style) -->
     <section id="approach" class="reveal">
       <div class="sticky-wrap">
         <div class="sticky-left">
           <div class="title">Approach</div>
           <h2>Every hearing should move the case.</h2>
-          <p>
-            I treat litigation as a system: facts → law → procedure → evidence → relief.
-            Each filing must serve a purpose; each appearance must advance the outcome.
+          <p class="p">
+            Litigation is a system: facts → law → procedure → evidence → relief.
+            My method is built to reduce uncertainty and increase control.
           </p>
         </div>
 
@@ -510,21 +556,18 @@
           <div class="step reveal">
             <div class="n">01 • Structure</div>
             <h3>Chronology first</h3>
-            <p>Dates, documents, and admissions — a one-page case theory before drafting.</p>
+            <p>Dates, documents, admissions — a one-page case theory before drafting.</p>
           </div>
-
           <div class="step reveal">
             <div class="n">02 • Procedure</div>
             <h3>Correct relief, correct forum</h3>
-            <p>Maintainability, jurisdiction, limitation, and interim strategy checked early.</p>
+            <p>Maintainability, jurisdiction, limitation, interim strategy — checked early.</p>
           </div>
-
           <div class="step reveal">
             <div class="n">03 • Drafting</div>
             <h3>Clean pleadings</h3>
             <p>Short paragraphs, proof-backed assertions, disciplined annexures.</p>
           </div>
-
           <div class="step reveal">
             <div class="n">04 • Execution</div>
             <h3>Follow-through</h3>
@@ -534,44 +577,14 @@
       </div>
     </section>
 
-    <section id="profile" class="reveal">
-      <div class="grid">
-        <div class="card">
-          <div class="title">Profile</div>
-          <div class="big">Professional snapshot</div>
-          <p class="p">
-            Advocate engaged in trial-court and High Court litigation. This page is a working profile; the full site will include
-            resources, checklists, and case-type explainers for clients.
-          </p>
-          <ul class="list">
-            <li class="li"><b>Base</b><span>Gurugram, Haryana</span></li>
-            <li class="li"><b>Courts</b><span>District Courts • P&H High Court</span></li>
-            <li class="li"><b>Work</b><span>Pleadings • arguments • compliance strategy</span></li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <div class="title">Next on site</div>
-          <div class="big">What I’m adding</div>
-          <p class="p">
-            Clean public resources for faster client onboarding and stronger case preparation.
-          </p>
-          <ul class="list">
-            <li class="li"><b>Client checklist</b><span>documents • timelines • annexures</span></li>
-            <li class="li"><b>Explainers</b><span>NDPS • CPC • evidence basics</span></li>
-            <li class="li"><b>Updates</b><span>hearing prep • compliance steps</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
+    <!-- CONTACT -->
     <section id="contact" class="reveal">
       <div class="card">
         <div class="title">Contact</div>
         <div class="big">Reach out</div>
         <p class="p">
-          Email is preferred for briefs and documents. For urgent matters, include <span class="mono">URGENT</span> in the subject line
-          and attach a short chronology.
+          Email is preferred for briefs and documents. For urgent matters, include
+          <span class="mono">URGENT</span> in the subject line and attach a short chronology.
         </p>
 
         <div style="height:14px"></div>
@@ -590,8 +603,8 @@
             <span>Gurugram, Haryana</span>
           </div>
           <div class="li">
-            <b>LinkedIn</b>
-            <span><a href="#" target="_blank" rel="noreferrer">Add your link</a></span>
+            <b>Office</b>
+            <span class="mono">Add chamber / address (optional)</span>
           </div>
         </div>
       </div>
@@ -607,10 +620,9 @@
     // Year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Split text animation staggering
+    // Split headline stagger
     (function(){
-      const h = document.getElementById("headline");
-      const spans = Array.from(h.querySelectorAll("span"));
+      const spans = Array.from(document.querySelectorAll("#headline span"));
       spans.forEach((s, i) => s.style.animationDelay = (i * 70) + "ms");
     })();
 
@@ -630,7 +642,6 @@
         if(ent.isIntersecting) ent.target.classList.add("on");
       }
     }, { threshold: 0.14 });
-
     document.querySelectorAll(".reveal").forEach(el => io.observe(el));
 
     // Mouse spotlight
@@ -642,10 +653,12 @@
       spot.style.setProperty('--my', my + '%');
     });
 
-    // Premium particles (no color hardcoding beyond white; background handles tint)
+    // Premium particles (white only; background tints them)
     const c = document.getElementById("fx");
     const ctx = c.getContext("2d");
     let W=0,H=0,parts=[];
+    function rand(a,b){ return a + Math.random()*(b-a); }
+
     function resize(){
       W = c.width = window.innerWidth * devicePixelRatio;
       H = c.height = window.innerHeight * devicePixelRatio;
@@ -654,8 +667,6 @@
       seed();
     }
     window.addEventListener("resize", resize);
-
-    function rand(a,b){ return a + Math.random()*(b-a); }
 
     function seed(){
       parts = [];
@@ -682,6 +693,7 @@
         if(p.y > H+20) p.y = -20;
         if(p.x > W+20) p.x = -20;
         if(p.x < -20) p.x = W+20;
+
         p.a += p.tw;
         const alpha = 0.18 + 0.22*Math.sin(p.a);
 
