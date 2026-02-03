@@ -5,467 +5,404 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Rakshit Raj Chauhan — Advocate</title>
   <meta name="description" content="Rakshit Raj Chauhan, Advocate (Punjab & Haryana High Court). Civil & Criminal Litigation, NDPS, Land Acquisition, Commercial Recovery." />
-  <meta name="theme-color" content="#070812" />
+  <meta name="theme-color" content="#0b0a08" />
 
-  <!-- Favicon (optional). If you don't have these files, remove these 3 lines. -->
+  <!-- Optional favicons (remove if you haven't uploaded them yet) -->
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
   <style>
     :root{
+      --bg:#0b0a08;
       --fg:rgba(255,255,255,.92);
-      --mut:rgba(255,255,255,.66);
-      --mut2:rgba(255,255,255,.52);
+      --mut:rgba(255,255,255,.70);
+      --mut2:rgba(255,255,255,.56);
       --line:rgba(255,255,255,.14);
-      --card:rgba(10,10,18,.52);
-      --glass: rgba(0,0,0,.38);
-      --shadow: 0 28px 110px rgba(0,0,0,.68);
-      --r:22px;
 
-      --gold:#ffd37a;
-      --blue:#8ab2ff;
-      --violet:#b88cff;
+      --glass: rgba(0,0,0,.38);
+      --glass2: rgba(255,255,255,.04);
+
+      --gold: #ffd59a;             /* warm gold */
+      --gold2: rgba(255,213,154,.28);
+      --gold3: rgba(255,213,154,.14);
+
+      --r: 18px;
+      --shadow: 0 28px 110px rgba(0,0,0,.68);
     }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color:var(--fg);
-      background:#070812;
-      overflow-x:hidden;
+      background: var(--bg);
+      font-family: "Times New Roman", Times, Georgia, serif;
+      letter-spacing: .2px;
     }
 
-    /* --- Full-screen media background --- */
+    /* Warm royal library background */
     .bg{
-      position:fixed; inset:0;
-      z-index:0;
-      overflow:hidden;
-      background: #070812;
-    }
-    .bg video{
-      position:absolute; inset:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      filter: contrast(1.05) saturate(1.05) brightness(.72);
-      transform: scale(1.02);
-    }
-    .bg::after{
-      content:"";
-      position:absolute; inset:0;
+      position: fixed; inset:0;
       background:
-        radial-gradient(1000px 700px at 20% 10%, rgba(138,178,255,.14), transparent 60%),
-        radial-gradient(1000px 700px at 85% 20%, rgba(184,140,255,.12), transparent 60%),
-        radial-gradient(900px 650px at 55% 92%, rgba(255,211,122,.14), transparent 62%),
-        linear-gradient(180deg, rgba(6,6,14,.60), rgba(0,0,0,.62));
-      pointer-events:none;
-    }
-
-    /* Fallback background image (royal library) behind video */
-    .bg .img-fallback{
-      position:absolute; inset:0;
-      background-image: url("https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=2400&q=80");
+        radial-gradient(900px 650px at 20% 12%, rgba(255,213,154,.10), transparent 60%),
+        radial-gradient(900px 650px at 80% 18%, rgba(255,213,154,.07), transparent 62%),
+        linear-gradient(180deg, rgba(0,0,0,.60), rgba(0,0,0,.76)),
+        url("https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=2600&q=80");
       background-size: cover;
       background-position: center;
-      filter: contrast(1.05) saturate(1.05) brightness(.72);
+      filter: contrast(1.05) brightness(.78) saturate(.95);
       transform: scale(1.02);
+      z-index:-2;
     }
 
-    /* Subtle film grain */
+    /* Subtle grain for “paper / royal” texture */
     .grain{
       pointer-events:none;
       position:fixed; inset:0;
-      opacity:.14;
+      opacity:.12;
       mix-blend-mode:overlay;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
-      z-index:2;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E");
+      z-index:-1;
     }
 
-    /* Scanlines */
-    .scan{
-      position:fixed; inset:0;
-      background: repeating-linear-gradient(
-        to bottom,
-        rgba(255,255,255,.05),
-        rgba(255,255,255,.05) 1px,
-        rgba(0,0,0,0) 4px,
-        rgba(0,0,0,0) 9px
-      );
-      opacity:.08;
-      animation: scan 10s linear infinite;
-      pointer-events:none;
-      z-index:2;
-    }
-    @keyframes scan { from{transform: translateY(0)} to{transform: translateY(90px)} }
-
-    /* Mouse spotlight */
-    .spot{
-      position:fixed; inset:0;
-      pointer-events:none;
-      background: radial-gradient(520px 520px at var(--mx,50%) var(--my,30%),
-        rgba(255,211,122,.10), transparent 60%);
-      mix-blend-mode:screen;
-      opacity:.85;
-      z-index:2;
-    }
-
-    /* Content wrapper */
     .wrap{
-      position:relative;
-      z-index:3;
-      max-width:1140px;
-      margin:0 auto;
-      padding:18px 18px 90px;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 18px 18px 70px;
     }
 
-    /* NAV */
+    /* Minimal nav (warm gold rule) */
     .nav{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(14px);
-      background: rgba(5,6,12,.52);
-      border-bottom:1px solid rgba(255,255,255,.10);
+      position: sticky; top: 0;
+      backdrop-filter: blur(10px);
+      background: rgba(11,10,8,.56);
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      z-index: 10;
     }
     .nav-inner{
-      max-width:1140px; margin:0 auto;
-      padding:14px 18px;
-      display:flex; align-items:center; justify-content:space-between;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
       gap:14px;
     }
     .brand{
-      display:flex; align-items:center; gap:10px;
-      font-weight:850;
-      letter-spacing:.2px;
+      display:flex;
+      flex-direction:column;
+      line-height:1.1;
     }
-    .mark{
-      width:36px; height:36px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.14);
-      background: linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.02));
-      display:grid; place-items:center;
-      box-shadow: 0 14px 60px rgba(0,0,0,.40);
-      position:relative; overflow:hidden;
+    .brand .name{
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: .3px;
     }
-    .mark::after{
-      content:"";
-      position:absolute; inset:-40px -60px;
-      background: radial-gradient(circle at 30% 30%, rgba(255,211,122,.22), transparent 55%);
-      opacity:.9;
-    }
-    .mark span{position:relative; font-size:13px}
-    .navlinks{
-      display:flex; align-items:center; gap:14px;
+    .brand .role{
+      font-size: 13px;
       color: var(--mut);
+      margin-top: 3px;
+    }
+    .links{
+      display:flex;
+      gap: 14px;
+      align-items:center;
+      font-size: 13.5px;
+      color: var(--mut);
+    }
+    .links a{
+      text-decoration:none;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+    }
+    .links a:hover{
+      color: var(--fg);
+      border-color: rgba(255,213,154,.22);
+      background: rgba(255,213,154,.06);
+    }
+
+    /* HERO */
+    .hero{
+      padding: 54px 0 26px;
+    }
+
+    .kicker{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      color: var(--mut);
+      letter-spacing: .26em;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+    .dot{
+      width:7px; height:7px; border-radius:50%;
+      background: var(--gold);
+      box-shadow: 0 0 24px rgba(255,213,154,.22);
+    }
+
+    h1{
+      margin: 14px 0 10px;
+      font-size: clamp(36px, 5vw, 64px);
+      line-height: 1.02;
+      font-weight: 700;
+      letter-spacing: -0.4px;
+    }
+
+    /* Warm gold underline rule under name */
+    .rule{
+      height: 1px;
+      width: 240px;
+      background: linear-gradient(90deg, rgba(255,213,154,.55), rgba(255,213,154,0));
+      margin: 12px 0 14px;
+    }
+
+    .sub{
+      margin:0;
+      max-width: 72ch;
+      color: var(--mut);
+      font-size: 17px;
+      line-height: 1.78;
+    }
+
+    /* Minimal panel */
+    .panel{
+      margin-top: 18px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: var(--glass);
+      border-radius: var(--r);
+      padding: 16px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+
+    /* Small-caps look (fake small caps via spacing + upper) */
+    .sc{
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: var(--mut2);
+    }
+
+    /* Timer */
+    .timer-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .timer{
+      display:flex;
+      gap: 10px;
+      align-items:flex-end;
+    }
+    .t{
+      text-align:center;
+      min-width: 72px;
+      padding: 10px 10px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,213,154,.22);
+      background: rgba(255,213,154,.05);
+    }
+    .num{
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: .4px;
+      color: rgba(255,255,255,.92);
+    }
+    .cap{
+      margin-top: 6px;
+      font-size: 12px;
+      color: rgba(255,255,255,.62);
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .launch{
+      margin-top: 10px;
+      color: rgba(255,255,255,.62);
       font-size: 13px;
     }
-    .navlinks a{ text-decoration:none; padding:8px 10px; border-radius:12px; }
-    .navlinks a:hover{ color: rgba(255,255,255,.90); background: rgba(255,255,255,.06); }
 
+    /* Buttons */
+    .actions{
+      margin-top: 14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      align-items:center;
+    }
     .btn{
+      font-family: "Times New Roman", Times, Georgia, serif;
       text-decoration:none;
-      border:1px solid rgba(255,255,255,.16);
+      border: 1px solid rgba(255,255,255,.16);
       background: rgba(255,255,255,.06);
-      padding:10px 12px;
-      border-radius: 13px;
-      font-size: 13px;
-      display:inline-flex; align-items:center; gap:8px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      color: var(--fg);
+      font-size: 14px;
       transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
       user-select:none;
-      position:relative; overflow:hidden;
-      color: rgba(255,255,255,.92);
     }
     .btn:hover{
       transform: translateY(-1px);
       background: rgba(255,255,255,.10);
       border-color: rgba(255,255,255,.22);
     }
-    .btn.primary{
-      background: linear-gradient(90deg, rgba(138,178,255,.18), rgba(184,140,255,.14), rgba(255,211,122,.14));
-      border-color: rgba(255,255,255,.20);
-    }
     .btn.gold{
-      background: linear-gradient(90deg, rgba(255,211,122,.22), rgba(255,211,122,.10));
-      border-color: rgba(255,211,122,.35);
+      border-color: rgba(255,213,154,.38);
+      background: rgba(255,213,154,.10);
+    }
+    .btn.gold:hover{
+      background: rgba(255,213,154,.14);
+      border-color: rgba(255,213,154,.52);
     }
 
-    /* HERO */
-    .hero{padding:62px 0 14px;}
-    .kicker{
-      color: rgba(255,255,255,.70);
-      font-size: 12.5px;
-      letter-spacing: .24em;
-      text-transform: uppercase;
-      display:flex; flex-wrap:wrap; gap:12px;
-      align-items:center;
+    /* Practice sections */
+    .grid{
+      margin-top: 16px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
     }
-    .kdot{
-      width:7px;height:7px;border-radius:50%;
-      background: rgba(255,211,122,.95);
-      box-shadow: 0 0 0 0 rgba(255,211,122,.25);
-      animation: pulse 1.7s infinite;
-      display:inline-block;
+    @media (max-width: 860px){
+      .grid{ grid-template-columns: 1fr; }
+      .t{ min-width: 62px; }
+      .rule{ width: 200px; }
     }
-    @keyframes pulse{
-      0%{box-shadow:0 0 0 0 rgba(255,211,122,.28)}
-      70%{box-shadow:0 0 0 16px rgba(255,211,122,0)}
-      100%{box-shadow:0 0 0 0 rgba(255,211,122,0)}
-    }
-
-    .headline{
-      margin:16px 0 10px;
-      font-size: clamp(36px, 4.6vw, 68px);
-      line-height:1.02;
-      letter-spacing:-1.05px;
-      text-shadow: 0 22px 80px rgba(0,0,0,.70);
-    }
-
-    /* Split word reveal */
-    .split span{
-      display:inline-block;
-      transform: translateY(12px);
-      opacity:0;
-      filter: blur(2px);
-      animation: rise 820ms cubic-bezier(.2,.85,.2,1) forwards;
-    }
-    @keyframes rise{ to{ transform: translateY(0); opacity:1; filter: blur(0); } }
-
-    .sub{
-      max-width: 78ch;
-      color: var(--mut);
-      font-size: 15.8px;
-      line-height:1.78;
-      margin:0;
-    }
-    .hero-cta{ margin-top:18px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
-
-    /* Section cards */
-    section{padding:54px 0;}
-    .grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    @media (max-width: 900px){ .grid{grid-template-columns:1fr} }
-
-    .card{
-      border:1px solid rgba(255,255,255,.16);
-      background: var(--card);
+    .box{
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.34);
       border-radius: var(--r);
-      padding: 18px;
-      box-shadow: var(--shadow);
-      position:relative;
-      overflow:hidden;
-      backdrop-filter: blur(10px);
+      padding: 16px;
+      box-shadow: 0 18px 70px rgba(0,0,0,.45);
+      backdrop-filter: blur(6px);
     }
-    .card::after{
-      content:"";
-      position:absolute; inset:-90px -120px;
-      background:
-        radial-gradient(circle at 22% 28%, rgba(184,140,255,.10), transparent 55%),
-        radial-gradient(circle at 78% 72%, rgba(138,178,255,.10), transparent 58%),
-        radial-gradient(circle at 55% 88%, rgba(255,211,122,.08), transparent 60%);
-      opacity:.75;
-      pointer-events:none;
-    }
-    .card > *{position:relative}
-
-    .title{
-      margin:0 0 8px;
-      font-size: 12.5px;
-      letter-spacing:.24em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.70);
-    }
-    .big{
+    .box h2{
       margin:0 0 10px;
-      font-size: 22px;
-      letter-spacing:-.3px;
+      font-size: 20px;
+      font-weight: 700;
     }
-    .p{
+    .box ul{
       margin:0;
+      padding-left: 18px;
       color: var(--mut);
-      line-height:1.78;
-      font-size: 14.6px;
+      line-height: 1.78;
+      font-size: 15px;
     }
 
-    .list{margin:12px 0 0; padding:0; list-style:none; display:grid; gap:10px;}
-    .li{
-      display:flex; justify-content:space-between; gap:12px;
-      padding:12px 12px;
-      border:1px solid rgba(255,255,255,.12);
-      border-radius: 14px;
-      background: rgba(0,0,0,.18);
-      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    .contactline{
+      margin-top:10px;
+      color: rgba(255,255,255,.72);
+      font-size: 14px;
+      border-top: 1px solid rgba(255,213,154,.16);
+      padding-top: 10px;
     }
-    .li:hover{ transform: translateY(-2px); border-color: rgba(255,255,255,.20); background: rgba(255,255,255,.06); }
-    .li b{font-weight:780}
-    .li span{color: rgba(255,255,255,.62); font-size: 13px}
-
-    /* Email row with CONNECT button */
-    .row{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-    .chip{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:10px 12px;
-      border-radius: 14px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.18);
-    }
-    .mono{font-variant-numeric: tabular-nums; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
-
-    /* Reveal */
-    .reveal{opacity:0; transform: translateY(12px); filter: blur(2px); transition: opacity 650ms ease, transform 650ms ease, filter 650ms ease;}
-    .reveal.on{opacity:1; transform: translateY(0); filter: blur(0);}
 
     footer{
-      margin-top:56px;
-      padding-top:18px;
-      border-top:1px solid rgba(255,255,255,.14);
-      color: rgba(255,255,255,.66);
-      font-size: 12.5px;
+      margin-top: 50px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,213,154,.16);
+      color: rgba(255,255,255,.62);
+      font-size: 13px;
       display:flex;
       justify-content:space-between;
-      gap:12px;
+      gap:10px;
       flex-wrap:wrap;
     }
 
-    @media (max-width: 780px){
-      .navlinks a:not(.btn){display:none;}
+    .mono{
+      font-variant-numeric: tabular-nums;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     }
   </style>
 </head>
 
 <body>
-  <!-- Background -->
-  <div class="bg" aria-hidden="true">
-    <div class="img-fallback"></div>
-    <video id="bgVideo" autoplay muted loop playsinline></video>
-  </div>
-
+  <div class="bg"></div>
   <div class="grain"></div>
-  <div class="scan"></div>
-  <canvas id="fx"></canvas>
-  <div class="spot"></div>
 
   <header class="nav">
     <div class="nav-inner">
       <div class="brand">
-        <div class="mark"><span>R</span></div>
-        <div>
-          <div style="font-size:13.8px; line-height:1; font-weight:850;">Rakshit Raj Chauhan</div>
-          <div style="font-size:12px; color:rgba(255,255,255,.70); line-height:1.25;">Advocate</div>
-        </div>
+        <div class="name">Rakshit Raj Chauhan</div>
+        <div class="role">Advocate • Gurugram • Punjab & Haryana High Court</div>
       </div>
-
-      <nav class="navlinks">
+      <nav class="links">
         <a href="#practice">Practice</a>
-        <a href="#approach">Approach</a>
         <a href="#contact">Contact</a>
-        <a class="btn primary" href="#contact">Let’s talk ↗</a>
       </nav>
     </div>
   </header>
 
   <main class="wrap">
     <section class="hero">
-      <div class="kicker"><span class="kdot"></span> Gurugram • Punjab & Haryana High Court</div>
+      <div class="kicker"><span class="dot"></span> Counsel • Litigation • Drafting</div>
 
-      <h1 class="headline split" id="headline">
-        <span>Strategy</span> <span>first.</span> <span>Procedure</span> <span>always.</span><br/>
-        <span>Arguments</span> <span>with</span> <span>clarity.</span>
-      </h1>
+      <h1>Rakshit Raj Chauhan</h1>
+      <div class="rule"></div>
 
       <p class="sub">
-        I represent clients across civil and criminal matters with disciplined drafting, evidence-ready preparation,
-        and a litigation-first approach that prioritises outcomes.
+        Advocate handling civil and criminal matters with a disciplined, court-ready approach:
+        clean chronology, precise pleadings, strong annexures, and practical relief strategy.
       </p>
 
-      <div class="hero-cta">
-        <a class="btn gold" href="#contact">Connect now</a>
-        <a class="btn" href="#practice">View practice</a>
-        <a class="btn" href="#" id="copyLink">Copy website link</a>
-      </div>
-    </section>
+      <div class="panel" id="contact">
+        <div class="timer-row">
+          <div>
+            <div class="sc">Site launches in</div>
+            <div class="launch mono" id="launchText"></div>
+          </div>
 
-    <section id="practice" class="reveal">
-      <div class="grid">
-        <div class="card">
-          <div class="title">Practice</div>
-          <div class="big">Matters handled</div>
-          <p class="p">Focused practice across trial courts and the High Court.</p>
-          <ul class="list">
-            <li class="li"><b>Civil Litigation</b><span>injunctions • property • declarations</span></li>
-            <li class="li"><b>Criminal Defense</b><span>bail • trial • quashing</span></li>
-            <li class="li"><b>NDPS</b><span>bail • trial • procedural compliance</span></li>
-            <li class="li"><b>Land Acquisition</b><span>references • enhancement • writs</span></li>
-            <li class="li"><b>Commercial & Recovery</b><span>NI-138 • suits • execution</span></li>
+          <div class="timer" aria-label="Countdown timer">
+            <div class="t"><div class="num" id="dd">10</div><div class="cap">Days</div></div>
+            <div class="t"><div class="num" id="hh">00</div><div class="cap">Hours</div></div>
+            <div class="t"><div class="num" id="mm">00</div><div class="cap">Minutes</div></div>
+            <div class="t"><div class="num" id="ss">00</div><div class="cap">Seconds</div></div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn gold" id="connectEmail" href="#">Connect (Email)</a>
+          <a class="btn" id="waBtn" href="#" rel="noreferrer">WhatsApp</a>
+          <a class="btn" href="tel:+918901065284">Call</a>
+          <a class="btn" href="#" id="copyLink">Copy website link</a>
+        </div>
+
+        <div class="contactline">
+          <span class="mono">Email:</span> contact@gmail.com &nbsp; • &nbsp;
+          <span class="mono">Phone/WhatsApp:</span> +91 8901065284
+        </div>
+      </div>
+
+      <div class="grid" id="practice">
+        <div class="box">
+          <div class="sc" style="margin-bottom:10px;">Practice</div>
+          <h2>Matters handled</h2>
+          <ul>
+            <li>Civil Litigation (injunctions, property, declarations)</li>
+            <li>Criminal Defense (bail, trial, quashing)</li>
+            <li>NDPS Matters (bail, trial, compliance strategy)</li>
+            <li>Land Acquisition (references, enhancement, writs)</li>
+            <li>Commercial Recovery (NI-138, suits, execution)</li>
           </ul>
         </div>
 
-        <div class="card">
-          <div class="title">Approach</div>
-          <div class="big">Clear, court-ready preparation</div>
-          <p class="p">
-            Litigation is a system: facts → law → procedure → evidence → relief.
-            Every filing must serve a purpose; every hearing must advance the case.
-          </p>
-          <ul class="list">
-            <li class="li"><b>Chronology first</b><span>clean dates, clean narrative</span></li>
-            <li class="li"><b>Annexures</b><span>page-numbered, referenced, proven</span></li>
-            <li class="li"><b>Interim strategy</b><span>urgency, convenience, harm</span></li>
-            <li class="li"><b>Follow-through</b><span>compliance, execution, next steps</span></li>
+        <div class="box">
+          <div class="sc" style="margin-bottom:10px;">Briefing</div>
+          <h2>Best format for consultation</h2>
+          <ul>
+            <li>Chronology in 1–2 pages</li>
+            <li>Documents in one PDF (page-numbered)</li>
+            <li>Relief sought + urgency / next date</li>
+            <li>Any prior orders / notices</li>
           </ul>
         </div>
-      </div>
-    </section>
-
-    <section id="contact" class="reveal">
-      <div class="card">
-        <div class="title">Contact</div>
-        <div class="big">Book an appointment</div>
-        <p class="p">
-          For faster response, share a short chronology and key documents.
-          For urgent matters, mention <span class="mono">URGENT</span> in the subject line.
-        </p>
-
-        <div style="height:14px"></div>
-
-        <!-- Email with CONNECT button -->
-        <div class="li">
-          <div class="row">
-            <div class="chip">
-              <b>Email</b>
-              <span class="mono" id="emailText">contact@gmail.com</span>
-            </div>
-            <a class="btn primary" id="connectEmail" href="#">CONNECT ↗</a>
-          </div>
-        </div>
-
-        <!-- Phone -->
-        <div class="li">
-          <div class="row">
-            <div class="chip">
-              <b>Phone</b>
-              <span class="mono">+91 8901065284</span>
-            </div>
-            <a class="btn" href="tel:+918901065284">Call ↗</a>
-          </div>
-        </div>
-
-        <!-- WhatsApp with prefilled message -->
-        <div class="li">
-          <div class="row">
-            <div class="chip">
-              <b>WhatsApp</b>
-              <span class="mono">8901065284</span>
-            </div>
-            <a class="btn gold" id="whatsappBtn" href="#" rel="noreferrer">Message ↗</a>
-          </div>
-        </div>
-
       </div>
 
       <footer>
@@ -476,16 +413,10 @@
   </main>
 
   <script>
-    // ========= HEADLINE STAGGER =========
-    (function(){
-      const spans = Array.from(document.querySelectorAll("#headline span"));
-      spans.forEach((s, i) => s.style.animationDelay = (i * 70) + "ms");
-    })();
-
-    // ========= YEAR =========
+    // Year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // ========= COPY LINK =========
+    // Copy link
     document.getElementById("copyLink").addEventListener("click", (e) => {
       e.preventDefault();
       navigator.clipboard.writeText(location.href).then(() => {
@@ -495,111 +426,70 @@
       });
     });
 
-    // ========= REVEAL ON SCROLL =========
-    const io = new IntersectionObserver((entries) => {
-      for (const ent of entries){
-        if(ent.isIntersecting) ent.target.classList.add("on");
-      }
-    }, { threshold: 0.14 });
-    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
-
-    // ========= MOUSE SPOTLIGHT =========
-    const spot = document.querySelector('.spot');
-    window.addEventListener('mousemove', (e) => {
-      const mx = (e.clientX / window.innerWidth) * 100;
-      const my = (e.clientY / window.innerHeight) * 100;
-      spot.style.setProperty('--mx', mx + '%');
-      spot.style.setProperty('--my', my + '%');
-    });
-
-    // ========= BACKGROUND VIDEO: randomly picks one from internet =========
-    // Note: autoplay works because it is muted.
-    // If a provider blocks hotlinking, the page still shows the library image fallback.
-    const videoSources = [
-      // Royal library / books vibe (public CDN samples; can be replaced anytime)
-      "https://cdn.coverr.co/videos/coverr-reading-a-book-9729/1080p.mp4",
-      "https://cdn.coverr.co/videos/coverr-browsing-through-books-6824/1080p.mp4",
-      "https://cdn.coverr.co/videos/coverr-library-books-1566/1080p.mp4"
-    ];
-    const bgVideo = document.getElementById("bgVideo");
-    try{
-      const pick = videoSources[Math.floor(Math.random()*videoSources.length)];
-      bgVideo.src = pick;
-      bgVideo.load();
-      bgVideo.play().catch(()=>{ /* ignore: browser policy */ });
-    }catch(e){ /* ignore */ }
-
-    // ========= EMAIL CONNECT BUTTON =========
-    // This opens the user’s default mail app / Gmail app if configured.
+    // Email "Connect" => opens mail composer
     const email = "contact@gmail.com";
     const subject = encodeURIComponent("Appointment Request — Rakshit Raj Chauhan, Advocate");
     const body = encodeURIComponent(
       "Greeting!\n\nI would like to get an appointment and discuss a matter.\n\n" +
-      "Name:\nPhone:\nBrief of matter:\nUrgency / next date (if any):\n\n" +
-      "Regards,"
+      "Name:\nPhone:\nBrief of matter:\nUrgency / next date (if any):\n\nRegards,"
     );
     document.getElementById("connectEmail").addEventListener("click", (e) => {
       e.preventDefault();
       window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
     });
 
-    // ========= WHATSAPP BUTTON (prefilled message) =========
+    // WhatsApp with prefilled message (user's exact text)
     const waMsg = "Greeting! i would like to get an apointment and sicuss a matter";
-    const waLink = "https://wa.me/918901065284?text=" + encodeURIComponent(waMsg);
-    const waBtn = document.getElementById("whatsappBtn");
-    waBtn.href = waLink;
+    document.getElementById("waBtn").href =
+      "https://wa.me/918901065284?text=" + encodeURIComponent(waMsg);
 
-    // ========= PARTICLES =========
-    const c = document.getElementById("fx");
-    const ctx = c.getContext("2d");
-    let W=0,H=0,parts=[];
-    function rand(a,b){ return a + Math.random()*(b-a); }
-
-    function resize(){
-      W = c.width = window.innerWidth * devicePixelRatio;
-      H = c.height = window.innerHeight * devicePixelRatio;
-      c.style.width = window.innerWidth + "px";
-      c.style.height = window.innerHeight + "px";
-      seed();
-    }
-    window.addEventListener("resize", resize);
-
-    function seed(){
-      parts = [];
-      const count = Math.min(160, Math.floor((window.innerWidth*window.innerHeight)/12000));
-      for(let i=0;i<count;i++){
-        parts.push({
-          x: rand(0,W), y: rand(0,H),
-          r: rand(0.8, 2.2) * devicePixelRatio,
-          vx: rand(-0.10,0.10) * devicePixelRatio,
-          vy: rand(0.05,0.24) * devicePixelRatio,
-          a: rand(0, Math.PI*2),
-          tw: rand(0.006, 0.016)
-        });
+    // 10-day countdown (persistent per device/browser)
+    (function(){
+      const KEY = "rrc_launch_ts";
+      let target = Number(localStorage.getItem(KEY));
+      if (!target || isNaN(target)) {
+        target = Date.now() + 10 * 24 * 60 * 60 * 1000;
+        localStorage.setItem(KEY, String(target));
       }
-    }
-    function draw(){
-      ctx.clearRect(0,0,W,H);
-      ctx.globalCompositeOperation = "lighter";
-      for(const p of parts){
-        p.x += p.vx; p.y += p.vy;
-        if(p.y > H+20) p.y = -20;
-        if(p.x > W+20) p.x = -20;
-        if(p.x < -20) p.x = W+20;
 
-        p.a += p.tw;
-        const alpha = 0.14 + 0.18*Math.sin(p.a);
+      const $dd = document.getElementById("dd");
+      const $hh = document.getElementById("hh");
+      const $mm = document.getElementById("mm");
+      const $ss = document.getElementById("ss");
+      const $lt = document.getElementById("launchText");
 
-        ctx.globalAlpha = alpha;
-        ctx.beginPath();
-        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-        ctx.fillStyle = "#ffffff";
-        ctx.fill();
+      const pad = (n)=> String(n).padStart(2,"0");
+
+      function tick(){
+        const now = Date.now();
+        let diff = target - now;
+
+        if (diff <= 0){
+          $dd.textContent = "00";
+          $hh.textContent = "00";
+          $mm.textContent = "00";
+          $ss.textContent = "00";
+          $lt.textContent = "Now live.";
+          return;
+        }
+
+        const s = Math.floor(diff / 1000);
+        const days = Math.floor(s / 86400);
+        const hours = Math.floor((s % 86400) / 3600);
+        const mins = Math.floor((s % 3600) / 60);
+        const secs = s % 60;
+
+        $dd.textContent = pad(days);
+        $hh.textContent = pad(hours);
+        $mm.textContent = pad(mins);
+        $ss.textContent = pad(secs);
+
+        const d = new Date(target);
+        $lt.textContent = "Launch date: " + d.toLocaleString();
+        setTimeout(tick, 250);
       }
-      requestAnimationFrame(draw);
-    }
-    resize();
-    draw();
+      tick();
+    })();
   </script>
 </body>
 </html>
