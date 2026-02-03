@@ -7,28 +7,25 @@
   <meta name="description" content="Rakshit Raj Chauhan, Advocate (Punjab & Haryana High Court). Civil & Criminal Litigation, NDPS, Land Acquisition, Commercial Recovery." />
   <meta name="theme-color" content="#070812" />
 
-  <!-- Favicons (put these files in repo root) -->
+  <!-- Favicon (optional). If you don't have these files, remove these 3 lines. -->
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
   <style>
     :root{
-      --bg0:#04040b;
-      --bg1:#070812;
       --fg:rgba(255,255,255,.92);
-      --mut:rgba(255,255,255,.62);
-      --mut2:rgba(255,255,255,.48);
-      --line:rgba(255,255,255,.12);
-      --card:rgba(255,255,255,.06);
-      --card2:rgba(0,0,0,.22);
-      --shadow: 0 28px 110px rgba(0,0,0,.62);
+      --mut:rgba(255,255,255,.66);
+      --mut2:rgba(255,255,255,.52);
+      --line:rgba(255,255,255,.14);
+      --card:rgba(10,10,18,.52);
+      --glass: rgba(0,0,0,.38);
+      --shadow: 0 28px 110px rgba(0,0,0,.68);
       --r:22px;
 
-      --royal:#8ab2ff;      /* royal blue */
-      --violet:#b88cff;     /* violet */
-      --gold:#ffd37a;       /* gold */
-      --pink:#ff4fd8;       /* accent */
+      --gold:#ffd37a;
+      --blue:#8ab2ff;
+      --violet:#b88cff;
     }
 
     *{box-sizing:border-box}
@@ -37,41 +34,57 @@
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color:var(--fg);
-      background:
-        radial-gradient(1200px 900px at 12% 16%, rgba(138,178,255,.12), transparent 60%),
-        radial-gradient(1100px 860px at 88% 18%, rgba(184,140,255,.10), transparent 60%),
-        radial-gradient(1000px 700px at 55% 90%, rgba(255,211,122,.10), transparent 62%),
-        linear-gradient(180deg, var(--bg1), var(--bg0));
+      background:#070812;
       overflow-x:hidden;
     }
 
-    /* Premium moving background */
-    .aurora{
-      position:fixed; inset:-28%;
-      background:
-        radial-gradient(circle at 20% 25%, rgba(138,178,255,.24), transparent 56%),
-        radial-gradient(circle at 82% 32%, rgba(184,140,255,.22), transparent 58%),
-        radial-gradient(circle at 55% 86%, rgba(255,211,122,.16), transparent 60%);
-      filter: blur(20px);
-      opacity:.85;
-      animation: drift 16s ease-in-out infinite alternate;
-      pointer-events:none;
+    /* --- Full-screen media background --- */
+    .bg{
+      position:fixed; inset:0;
       z-index:0;
+      overflow:hidden;
+      background: #070812;
     }
-    @keyframes drift{
-      0%{ transform: translate3d(-2%, -1%, 0) scale(1.0) rotate(-2deg); }
-      100%{ transform: translate3d(2%, 2%, 0) scale(1.06) rotate(2deg); }
+    .bg video{
+      position:absolute; inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      filter: contrast(1.05) saturate(1.05) brightness(.72);
+      transform: scale(1.02);
+    }
+    .bg::after{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(1000px 700px at 20% 10%, rgba(138,178,255,.14), transparent 60%),
+        radial-gradient(1000px 700px at 85% 20%, rgba(184,140,255,.12), transparent 60%),
+        radial-gradient(900px 650px at 55% 92%, rgba(255,211,122,.14), transparent 62%),
+        linear-gradient(180deg, rgba(6,6,14,.60), rgba(0,0,0,.62));
+      pointer-events:none;
     }
 
-    /* Grain + scanlines like premium portfolio sites */
+    /* Fallback background image (royal library) behind video */
+    .bg .img-fallback{
+      position:absolute; inset:0;
+      background-image: url("https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=2400&q=80");
+      background-size: cover;
+      background-position: center;
+      filter: contrast(1.05) saturate(1.05) brightness(.72);
+      transform: scale(1.02);
+    }
+
+    /* Subtle film grain */
     .grain{
       pointer-events:none;
       position:fixed; inset:0;
       opacity:.14;
       mix-blend-mode:overlay;
       background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
-      z-index:1;
+      z-index:2;
     }
+
+    /* Scanlines */
     .scan{
       position:fixed; inset:0;
       background: repeating-linear-gradient(
@@ -84,39 +97,36 @@
       opacity:.08;
       animation: scan 10s linear infinite;
       pointer-events:none;
-      z-index:1;
-    }
-    @keyframes scan { from{transform: translateY(0)} to{transform: translateY(90px)} }
-
-    /* Particles */
-    #fx{
-      position:fixed; inset:0;
-      pointer-events:none;
-      opacity:.80;
-      mix-blend-mode:screen;
       z-index:2;
     }
+    @keyframes scan { from{transform: translateY(0)} to{transform: translateY(90px)} }
 
     /* Mouse spotlight */
     .spot{
       position:fixed; inset:0;
       pointer-events:none;
       background: radial-gradient(520px 520px at var(--mx,50%) var(--my,30%),
-        rgba(138,178,255,.12), transparent 60%);
+        rgba(255,211,122,.10), transparent 60%);
       mix-blend-mode:screen;
-      opacity:.9;
+      opacity:.85;
       z-index:2;
     }
 
-    a{color:inherit}
-    .wrap{max-width:1140px; margin:0 auto; padding:18px 18px 90px; position:relative; z-index:3;}
+    /* Content wrapper */
+    .wrap{
+      position:relative;
+      z-index:3;
+      max-width:1140px;
+      margin:0 auto;
+      padding:18px 18px 90px;
+    }
 
     /* NAV */
     .nav{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(14px);
-      background: rgba(7,8,18,.62);
-      border-bottom:1px solid rgba(255,255,255,.08);
+      background: rgba(5,6,12,.52);
+      border-bottom:1px solid rgba(255,255,255,.10);
     }
     .nav-inner{
       max-width:1140px; margin:0 auto;
@@ -141,8 +151,8 @@
     .mark::after{
       content:"";
       position:absolute; inset:-40px -60px;
-      background: radial-gradient(circle at 30% 30%, rgba(255,211,122,.18), transparent 55%);
-      opacity:.85;
+      background: radial-gradient(circle at 30% 30%, rgba(255,211,122,.22), transparent 55%);
+      opacity:.9;
     }
     .mark span{position:relative; font-size:13px}
     .navlinks{
@@ -151,7 +161,7 @@
       font-size: 13px;
     }
     .navlinks a{ text-decoration:none; padding:8px 10px; border-radius:12px; }
-    .navlinks a:hover{ color: rgba(255,255,255,.88); background: rgba(255,255,255,.05); }
+    .navlinks a:hover{ color: rgba(255,255,255,.90); background: rgba(255,255,255,.06); }
 
     .btn{
       text-decoration:none;
@@ -164,6 +174,7 @@
       transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
       user-select:none;
       position:relative; overflow:hidden;
+      color: rgba(255,255,255,.92);
     }
     .btn:hover{
       transform: translateY(-1px);
@@ -171,14 +182,18 @@
       border-color: rgba(255,255,255,.22);
     }
     .btn.primary{
-      background: linear-gradient(90deg, rgba(138,178,255,.22), rgba(184,140,255,.16), rgba(255,211,122,.12));
+      background: linear-gradient(90deg, rgba(138,178,255,.18), rgba(184,140,255,.14), rgba(255,211,122,.14));
       border-color: rgba(255,255,255,.20);
+    }
+    .btn.gold{
+      background: linear-gradient(90deg, rgba(255,211,122,.22), rgba(255,211,122,.10));
+      border-color: rgba(255,211,122,.35);
     }
 
     /* HERO */
-    .hero{padding:64px 0 10px;}
+    .hero{padding:62px 0 14px;}
     .kicker{
-      color: rgba(255,255,255,.66);
+      color: rgba(255,255,255,.70);
       font-size: 12.5px;
       letter-spacing: .24em;
       text-transform: uppercase;
@@ -187,7 +202,7 @@
     }
     .kdot{
       width:7px;height:7px;border-radius:50%;
-      background: rgba(255,211,122,.90);
+      background: rgba(255,211,122,.95);
       box-shadow: 0 0 0 0 rgba(255,211,122,.25);
       animation: pulse 1.7s infinite;
       display:inline-block;
@@ -200,10 +215,10 @@
 
     .headline{
       margin:16px 0 10px;
-      font-size: clamp(36px, 4.8vw, 70px);
+      font-size: clamp(36px, 4.6vw, 68px);
       line-height:1.02;
-      letter-spacing:-1.15px;
-      text-shadow: 0 20px 70px rgba(0,0,0,.58);
+      letter-spacing:-1.05px;
+      text-shadow: 0 22px 80px rgba(0,0,0,.70);
     }
 
     /* Split word reveal */
@@ -225,53 +240,20 @@
     }
     .hero-cta{ margin-top:18px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
 
-    /* Moving marquee (DylanBrouwer vibe) */
-    .marquee{
-      margin:30px 0 0;
-      border-top:1px solid rgba(255,255,255,.10);
-      border-bottom:1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.12);
-      overflow:hidden;
-      border-radius: 16px;
-    }
-    .track{
-      display:flex;
-      gap:50px;
-      padding:16px 0;
-      width:max-content;
-      animation: scroll 18s linear infinite;
-      will-change: transform;
-    }
-    @keyframes scroll{ from{transform: translateX(0)} to{transform: translateX(-50%)} }
-    .mitem{
-      font-weight:850;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      font-size: 12.5px;
-      color: rgba(255,255,255,.72);
-      display:flex; align-items:center; gap:10px;
-      white-space:nowrap;
-    }
-    .spark{
-      width:6px;height:6px;border-radius:50%;
-      background: rgba(138,178,255,.9);
-      box-shadow: 0 0 20px rgba(138,178,255,.35);
-    }
-    .marquee:hover .track{ animation-play-state: paused; }
-
-    /* Cards + layout */
-    section{padding:56px 0;}
+    /* Section cards */
+    section{padding:54px 0;}
     .grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     @media (max-width: 900px){ .grid{grid-template-columns:1fr} }
 
     .card{
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.20);
+      border:1px solid rgba(255,255,255,.16);
+      background: var(--card);
       border-radius: var(--r);
       padding: 18px;
       box-shadow: var(--shadow);
       position:relative;
       overflow:hidden;
+      backdrop-filter: blur(10px);
     }
     .card::after{
       content:"";
@@ -290,7 +272,7 @@
       font-size: 12.5px;
       letter-spacing:.24em;
       text-transform: uppercase;
-      color: rgba(255,255,255,.62);
+      color: rgba(255,255,255,.70);
     }
     .big{
       margin:0 0 10px;
@@ -304,84 +286,35 @@
       font-size: 14.6px;
     }
 
-    .profile{
-      display:flex; gap:14px; align-items:center;
-      padding:14px;
-      border-radius: 18px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      margin-top:12px;
-    }
-    .avatar{
-      width:72px; height:72px; border-radius: 18px;
-      border:1px solid rgba(255,255,255,.12);
-      background:
-        linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.02)),
-        url("assets/profile.jpg") center/cover no-repeat;
-      box-shadow: 0 14px 60px rgba(0,0,0,.35);
-      flex:0 0 auto;
-    }
-    .who b{display:block; font-size:16px}
-    .who span{display:block; color: var(--mut); font-size:13.5px; margin-top:4px}
-    .who em{font-style:normal; color: rgba(255,211,122,.82)}
-
-    /* List tiles */
     .list{margin:12px 0 0; padding:0; list-style:none; display:grid; gap:10px;}
     .li{
       display:flex; justify-content:space-between; gap:12px;
       padding:12px 12px;
-      border:1px solid rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.12);
       border-radius: 14px;
-      background: rgba(255,255,255,.04);
+      background: rgba(0,0,0,.18);
       transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
     }
-    .li:hover{ transform: translateY(-2px); border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.06); }
+    .li:hover{ transform: translateY(-2px); border-color: rgba(255,255,255,.20); background: rgba(255,255,255,.06); }
     .li b{font-weight:780}
-    .li span{color: rgba(255,255,255,.58); font-size: 13px}
+    .li span{color: rgba(255,255,255,.62); font-size: 13px}
 
-    /* Sticky “approach” block like portfolio about pages */
-    .sticky-wrap{
-      display:grid;
-      grid-template-columns: .95fr 1.05fr;
-      gap: 14px;
-      align-items:start;
+    /* Email row with CONNECT button */
+    .row{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
     }
-    @media (max-width: 900px){ .sticky-wrap{grid-template-columns:1fr} }
-
-    .sticky-left{
-      position: sticky;
-      top: 86px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.22);
-      border-radius: var(--r);
-      padding: 18px;
-      box-shadow: var(--shadow);
-      overflow:hidden;
+    .chip{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
     }
-    .sticky-left h2{
-      margin:6px 0 10px;
-      font-size: 30px;
-      letter-spacing:-.7px;
-      line-height:1.1;
-    }
-    .steps{display:grid; gap: 12px;}
-    .step{
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
-      border-radius: var(--r);
-      padding: 16px;
-      min-height: 112px;
-      transition: transform 160ms ease, background 160ms ease;
-    }
-    .step:hover{ transform: translateY(-2px); background: rgba(255,255,255,.07); }
-    .step .n{
-      font-size:12px;
-      letter-spacing:.24em;
-      text-transform:uppercase;
-      color: rgba(255,255,255,.60);
-    }
-    .step h3{ margin:8px 0 8px; font-size: 19px; letter-spacing:-.3px; }
-    .step p{ margin:0; color: rgba(255,255,255,.62); line-height:1.72; font-size:14px; }
+    .mono{font-variant-numeric: tabular-nums; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
 
     /* Reveal */
     .reveal{opacity:0; transform: translateY(12px); filter: blur(2px); transition: opacity 650ms ease, transform 650ms ease, filter 650ms ease;}
@@ -390,15 +323,14 @@
     footer{
       margin-top:56px;
       padding-top:18px;
-      border-top:1px solid rgba(255,255,255,.10);
-      color: rgba(255,255,255,.56);
+      border-top:1px solid rgba(255,255,255,.14);
+      color: rgba(255,255,255,.66);
       font-size: 12.5px;
       display:flex;
       justify-content:space-between;
       gap:12px;
       flex-wrap:wrap;
     }
-    .mono{font-variant-numeric: tabular-nums; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
 
     @media (max-width: 780px){
       .navlinks a:not(.btn){display:none;}
@@ -407,7 +339,12 @@
 </head>
 
 <body>
-  <div class="aurora"></div>
+  <!-- Background -->
+  <div class="bg" aria-hidden="true">
+    <div class="img-fallback"></div>
+    <video id="bgVideo" autoplay muted loop playsinline></video>
+  </div>
+
   <div class="grain"></div>
   <div class="scan"></div>
   <canvas id="fx"></canvas>
@@ -419,12 +356,11 @@
         <div class="mark"><span>R</span></div>
         <div>
           <div style="font-size:13.8px; line-height:1; font-weight:850;">Rakshit Raj Chauhan</div>
-          <div style="font-size:12px; color:rgba(255,255,255,.55); line-height:1.25;">Advocate</div>
+          <div style="font-size:12px; color:rgba(255,255,255,.70); line-height:1.25;">Advocate</div>
         </div>
       </div>
 
       <nav class="navlinks">
-        <a href="#about">About</a>
         <a href="#practice">Practice</a>
         <a href="#approach">Approach</a>
         <a href="#contact">Contact</a>
@@ -434,8 +370,7 @@
   </header>
 
   <main class="wrap">
-    <!-- HERO -->
-    <section class="hero" id="top">
+    <section class="hero">
       <div class="kicker"><span class="kdot"></span> Gurugram • Punjab & Haryana High Court</div>
 
       <h1 class="headline split" id="headline">
@@ -449,68 +384,12 @@
       </p>
 
       <div class="hero-cta">
-        <a class="btn primary" href="#contact">Book a consult</a>
-        <a class="btn" href="#" id="copyLink">Copy website link</a>
+        <a class="btn gold" href="#contact">Connect now</a>
         <a class="btn" href="#practice">View practice</a>
-      </div>
-
-      <!-- Marquee band (portfolio vibe) -->
-      <div class="marquee" aria-hidden="true">
-        <div class="track" id="track">
-          <div class="mitem"><span class="spark"></span> Civil Litigation</div>
-          <div class="mitem"><span class="spark"></span> Criminal Defense</div>
-          <div class="mitem"><span class="spark"></span> NDPS Matters</div>
-          <div class="mitem"><span class="spark"></span> Land Acquisition</div>
-          <div class="mitem"><span class="spark"></span> Commercial Recovery</div>
-          <div class="mitem"><span class="spark"></span> Drafting & Strategy</div>
-
-          <!-- duplicated for seamless scroll -->
-          <div class="mitem"><span class="spark"></span> Civil Litigation</div>
-          <div class="mitem"><span class="spark"></span> Criminal Defense</div>
-          <div class="mitem"><span class="spark"></span> NDPS Matters</div>
-          <div class="mitem"><span class="spark"></span> Land Acquisition</div>
-          <div class="mitem"><span class="spark"></span> Commercial Recovery</div>
-          <div class="mitem"><span class="spark"></span> Drafting & Strategy</div>
-        </div>
+        <a class="btn" href="#" id="copyLink">Copy website link</a>
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="reveal">
-      <div class="grid">
-        <div class="card">
-          <div class="title">Behind the work</div>
-          <div class="big">A litigation-first mindset</div>
-          <p class="p">
-            I focus on what wins cases: chronology, maintainability, procedure, evidence, and relief.
-            Clean pleadings and strong annexures reduce noise — and make arguments sharper.
-          </p>
-
-          <div class="profile">
-            <div class="avatar" title="Add your photo: assets/profile.jpg"></div>
-            <div class="who">
-              <b>Rakshit Raj Chauhan</b>
-              <span><em>Advocate</em> • Gurugram, Haryana</span>
-              <span class="mono">rakshitrajchauhan.com</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="title">Working style</div>
-          <div class="big">How I take a brief</div>
-          <p class="p">For speed and accuracy, the file must be structured. This is the format that works best:</p>
-          <ul class="list">
-            <li class="li"><b>Chronology</b><span>dates + events in 1–2 pages</span></li>
-            <li class="li"><b>Documents</b><span>PDF, properly named, page-numbered</span></li>
-            <li class="li"><b>Relief sought</b><span>what you want the court to grant</span></li>
-            <li class="li"><b>Urgency</b><span>next date / interim requirement</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRACTICE -->
     <section id="practice" class="reveal">
       <div class="grid">
         <div class="card">
@@ -527,86 +406,66 @@
         </div>
 
         <div class="card">
-          <div class="title">What you get</div>
-          <div class="big">Clear deliverables</div>
-          <p class="p">Clients typically need clarity + speed. These are the outcomes I optimise for.</p>
+          <div class="title">Approach</div>
+          <div class="big">Clear, court-ready preparation</div>
+          <p class="p">
+            Litigation is a system: facts → law → procedure → evidence → relief.
+            Every filing must serve a purpose; every hearing must advance the case.
+          </p>
           <ul class="list">
-            <li class="li"><b>Hearing roadmap</b><span>what matters on the next date</span></li>
-            <li class="li"><b>Drafting quality</b><span>tight pleadings, clean annexures</span></li>
-            <li class="li"><b>Interim strategy</b><span>urgency, balance of convenience, harm</span></li>
+            <li class="li"><b>Chronology first</b><span>clean dates, clean narrative</span></li>
+            <li class="li"><b>Annexures</b><span>page-numbered, referenced, proven</span></li>
+            <li class="li"><b>Interim strategy</b><span>urgency, convenience, harm</span></li>
             <li class="li"><b>Follow-through</b><span>compliance, execution, next steps</span></li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- APPROACH (sticky, portfolio style) -->
-    <section id="approach" class="reveal">
-      <div class="sticky-wrap">
-        <div class="sticky-left">
-          <div class="title">Approach</div>
-          <h2>Every hearing should move the case.</h2>
-          <p class="p">
-            Litigation is a system: facts → law → procedure → evidence → relief.
-            My method is built to reduce uncertainty and increase control.
-          </p>
-        </div>
-
-        <div class="steps">
-          <div class="step reveal">
-            <div class="n">01 • Structure</div>
-            <h3>Chronology first</h3>
-            <p>Dates, documents, admissions — a one-page case theory before drafting.</p>
-          </div>
-          <div class="step reveal">
-            <div class="n">02 • Procedure</div>
-            <h3>Correct relief, correct forum</h3>
-            <p>Maintainability, jurisdiction, limitation, interim strategy — checked early.</p>
-          </div>
-          <div class="step reveal">
-            <div class="n">03 • Drafting</div>
-            <h3>Clean pleadings</h3>
-            <p>Short paragraphs, proof-backed assertions, disciplined annexures.</p>
-          </div>
-          <div class="step reveal">
-            <div class="n">04 • Execution</div>
-            <h3>Follow-through</h3>
-            <p>Orders are implemented: compliance, execution, and next-step planning.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
     <section id="contact" class="reveal">
       <div class="card">
         <div class="title">Contact</div>
-        <div class="big">Reach out</div>
+        <div class="big">Book an appointment</div>
         <p class="p">
-          Email is preferred for briefs and documents. For urgent matters, include
-          <span class="mono">URGENT</span> in the subject line and attach a short chronology.
+          For faster response, share a short chronology and key documents.
+          For urgent matters, mention <span class="mono">URGENT</span> in the subject line.
         </p>
 
         <div style="height:14px"></div>
 
-        <div class="grid">
-          <div class="li">
-            <b>Email</b>
-            <span><a href="mailto:youremail@example.com">youremail@example.com</a></span>
-          </div>
-          <div class="li">
-            <b>Phone / WhatsApp</b>
-            <span class="mono">+91-XXXXXXXXXX</span>
-          </div>
-          <div class="li">
-            <b>Location</b>
-            <span>Gurugram, Haryana</span>
-          </div>
-          <div class="li">
-            <b>Office</b>
-            <span class="mono">Add chamber / address (optional)</span>
+        <!-- Email with CONNECT button -->
+        <div class="li">
+          <div class="row">
+            <div class="chip">
+              <b>Email</b>
+              <span class="mono" id="emailText">contact@gmail.com</span>
+            </div>
+            <a class="btn primary" id="connectEmail" href="#">CONNECT ↗</a>
           </div>
         </div>
+
+        <!-- Phone -->
+        <div class="li">
+          <div class="row">
+            <div class="chip">
+              <b>Phone</b>
+              <span class="mono">+91 8901065284</span>
+            </div>
+            <a class="btn" href="tel:+918901065284">Call ↗</a>
+          </div>
+        </div>
+
+        <!-- WhatsApp with prefilled message -->
+        <div class="li">
+          <div class="row">
+            <div class="chip">
+              <b>WhatsApp</b>
+              <span class="mono">8901065284</span>
+            </div>
+            <a class="btn gold" id="whatsappBtn" href="#" rel="noreferrer">Message ↗</a>
+          </div>
+        </div>
+
       </div>
 
       <footer>
@@ -617,16 +476,16 @@
   </main>
 
   <script>
-    // Year
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Split headline stagger
+    // ========= HEADLINE STAGGER =========
     (function(){
       const spans = Array.from(document.querySelectorAll("#headline span"));
       spans.forEach((s, i) => s.style.animationDelay = (i * 70) + "ms");
     })();
 
-    // Copy link
+    // ========= YEAR =========
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ========= COPY LINK =========
     document.getElementById("copyLink").addEventListener("click", (e) => {
       e.preventDefault();
       navigator.clipboard.writeText(location.href).then(() => {
@@ -636,7 +495,7 @@
       });
     });
 
-    // Reveal on scroll
+    // ========= REVEAL ON SCROLL =========
     const io = new IntersectionObserver((entries) => {
       for (const ent of entries){
         if(ent.isIntersecting) ent.target.classList.add("on");
@@ -644,7 +503,7 @@
     }, { threshold: 0.14 });
     document.querySelectorAll(".reveal").forEach(el => io.observe(el));
 
-    // Mouse spotlight
+    // ========= MOUSE SPOTLIGHT =========
     const spot = document.querySelector('.spot');
     window.addEventListener('mousemove', (e) => {
       const mx = (e.clientX / window.innerWidth) * 100;
@@ -653,7 +512,44 @@
       spot.style.setProperty('--my', my + '%');
     });
 
-    // Premium particles (white only; background tints them)
+    // ========= BACKGROUND VIDEO: randomly picks one from internet =========
+    // Note: autoplay works because it is muted.
+    // If a provider blocks hotlinking, the page still shows the library image fallback.
+    const videoSources = [
+      // Royal library / books vibe (public CDN samples; can be replaced anytime)
+      "https://cdn.coverr.co/videos/coverr-reading-a-book-9729/1080p.mp4",
+      "https://cdn.coverr.co/videos/coverr-browsing-through-books-6824/1080p.mp4",
+      "https://cdn.coverr.co/videos/coverr-library-books-1566/1080p.mp4"
+    ];
+    const bgVideo = document.getElementById("bgVideo");
+    try{
+      const pick = videoSources[Math.floor(Math.random()*videoSources.length)];
+      bgVideo.src = pick;
+      bgVideo.load();
+      bgVideo.play().catch(()=>{ /* ignore: browser policy */ });
+    }catch(e){ /* ignore */ }
+
+    // ========= EMAIL CONNECT BUTTON =========
+    // This opens the user’s default mail app / Gmail app if configured.
+    const email = "contact@gmail.com";
+    const subject = encodeURIComponent("Appointment Request — Rakshit Raj Chauhan, Advocate");
+    const body = encodeURIComponent(
+      "Greeting!\n\nI would like to get an appointment and discuss a matter.\n\n" +
+      "Name:\nPhone:\nBrief of matter:\nUrgency / next date (if any):\n\n" +
+      "Regards,"
+    );
+    document.getElementById("connectEmail").addEventListener("click", (e) => {
+      e.preventDefault();
+      window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+    });
+
+    // ========= WHATSAPP BUTTON (prefilled message) =========
+    const waMsg = "Greeting! i would like to get an apointment and sicuss a matter";
+    const waLink = "https://wa.me/918901065284?text=" + encodeURIComponent(waMsg);
+    const waBtn = document.getElementById("whatsappBtn");
+    waBtn.href = waLink;
+
+    // ========= PARTICLES =========
     const c = document.getElementById("fx");
     const ctx = c.getContext("2d");
     let W=0,H=0,parts=[];
@@ -670,32 +566,29 @@
 
     function seed(){
       parts = [];
-      const count = Math.min(150, Math.floor((window.innerWidth*window.innerHeight)/12000));
+      const count = Math.min(160, Math.floor((window.innerWidth*window.innerHeight)/12000));
       for(let i=0;i<count;i++){
         parts.push({
-          x: rand(0,W),
-          y: rand(0,H),
-          r: rand(0.8, 2.4) * devicePixelRatio,
-          vx: rand(-0.12,0.12) * devicePixelRatio,
-          vy: rand(0.05,0.26) * devicePixelRatio,
+          x: rand(0,W), y: rand(0,H),
+          r: rand(0.8, 2.2) * devicePixelRatio,
+          vx: rand(-0.10,0.10) * devicePixelRatio,
+          vy: rand(0.05,0.24) * devicePixelRatio,
           a: rand(0, Math.PI*2),
-          tw: rand(0.006, 0.018)
+          tw: rand(0.006, 0.016)
         });
       }
     }
-
     function draw(){
       ctx.clearRect(0,0,W,H);
       ctx.globalCompositeOperation = "lighter";
       for(const p of parts){
-        p.x += p.vx;
-        p.y += p.vy;
+        p.x += p.vx; p.y += p.vy;
         if(p.y > H+20) p.y = -20;
         if(p.x > W+20) p.x = -20;
         if(p.x < -20) p.x = W+20;
 
         p.a += p.tw;
-        const alpha = 0.18 + 0.22*Math.sin(p.a);
+        const alpha = 0.14 + 0.18*Math.sin(p.a);
 
         ctx.globalAlpha = alpha;
         ctx.beginPath();
@@ -705,7 +598,6 @@
       }
       requestAnimationFrame(draw);
     }
-
     resize();
     draw();
   </script>
