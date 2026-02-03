@@ -3,913 +3,455 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rakshit Raj Chauhan — Cyberpunk Royal Launch</title>
-  <meta name="description" content="Cyberpunk royal under-construction launch page with interactive doodles and countdown." />
-  <meta name="theme-color" content="#070813" />
+  <title>Rakshit Raj Chauhan — Advocate</title>
+  <meta name="description" content="Advocate — Gurugram | Punjab & Haryana High Court. Civil, Criminal, NDPS, Land & Commercial matters." />
 
   <style>
     :root{
-      --bg0:#04040d;
-      --bg1:#070824;
-      --card: rgba(255,255,255,.06);
-      --stroke: rgba(255,255,255,.14);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.66);
-
-      --neon1:#35f5ff;  /* cyan */
-      --neon2:#b86bff;  /* violet */
-      --neon3:#ff4fd8;  /* pink */
-      --gold:#ffd37a;   /* royal */
-      --shadow: 0 28px 100px rgba(0,0,0,.6);
-      --radius: 26px;
+      --bg:#070812;
+      --fg:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.62);
+      --line:rgba(255,255,255,.12);
+      --card:rgba(255,255,255,.06);
+      --shadow: 0 24px 80px rgba(0,0,0,.55);
+      --r:18px;
     }
 
     *{box-sizing:border-box}
-    html,body{height:100%}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      color:var(--text);
       background:
-        radial-gradient(1100px 760px at 15% 20%, rgba(53,245,255,.14), transparent 62%),
-        radial-gradient(1100px 760px at 85% 22%, rgba(184,107,255,.14), transparent 62%),
-        radial-gradient(900px 650px at 55% 88%, rgba(255,211,122,.10), transparent 60%),
-        linear-gradient(180deg, var(--bg1), var(--bg0));
-      overflow:hidden;
+        radial-gradient(900px 650px at 20% 15%, rgba(120,140,255,.12), transparent 60%),
+        radial-gradient(900px 650px at 80% 25%, rgba(255,220,140,.10), transparent 62%),
+        linear-gradient(180deg, #070812, #04040b);
+      color:var(--fg);
     }
 
-    /* --- Cyberpunk background layers --- */
-    .aurora{
-      position:fixed; inset:-30%;
-      background:
-        radial-gradient(circle at 18% 22%, rgba(53,245,255,.22), transparent 55%),
-        radial-gradient(circle at 86% 28%, rgba(184,107,255,.22), transparent 56%),
-        radial-gradient(circle at 55% 86%, rgba(255,79,216,.12), transparent 56%);
-      filter: blur(22px);
-      opacity:.9;
-      animation: drift 14s ease-in-out infinite alternate;
+    /* Subtle film grain */
+    .grain{
       pointer-events:none;
-    }
-    @keyframes drift{
-      0%{transform: translate3d(-2%, -1%, 0) scale(1.0) rotate(-2deg)}
-      100%{transform: translate3d(2%, 2%, 0) scale(1.06) rotate(2deg)}
-    }
-
-    .scanlines{
       position:fixed; inset:0;
-      background: repeating-linear-gradient(
-        to bottom,
-        rgba(255,255,255,.04),
-        rgba(255,255,255,.04) 1px,
-        rgba(0,0,0,0) 3px,
-        rgba(0,0,0,0) 6px
-      );
-      mix-blend-mode: overlay;
-      opacity:.22;
-      pointer-events:none;
-      animation: scan 8s linear infinite;
-    }
-    @keyframes scan{
-      from{transform: translateY(0)}
-      to{transform: translateY(60px)}
+      opacity:.16;
+      mix-blend-mode:overlay;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
     }
 
-    .vignette{
-      position:fixed; inset:0;
-      background: radial-gradient(circle at 50% 35%, transparent 45%, rgba(0,0,0,.55) 85%);
-      pointer-events:none;
-      opacity:.9;
+    a{color:inherit}
+    .wrap{max-width:1080px; margin:0 auto; padding:26px 18px 80px;}
+    .nav{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(12px);
+      background: rgba(7,8,18,.55);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .nav-inner{
+      max-width:1080px; margin:0 auto;
+      padding:14px 18px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      letter-spacing:.2px;
+      font-weight:700;
+    }
+    .mark{
+      width:30px; height:30px;
+      border-radius:10px;
+      border:1px solid var(--line);
+      background: linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.02));
+      display:grid; place-items:center;
+      box-shadow: 0 10px 40px rgba(0,0,0,.35);
+      font-size:13px;
+    }
+    .navlinks{
+      display:flex; align-items:center; gap:14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .navlinks a{ text-decoration:none; }
+    .navlinks a:hover{ color: rgba(255,255,255,.88); }
+
+    .btn{
+      text-decoration:none;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      padding:9px 12px;
+      border-radius: 12px;
+      font-size: 13px;
+      display:inline-flex; align-items:center; gap:8px;
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.10);
+      border-color: rgba(255,255,255,.22);
     }
 
-    /* Cyberpunk “city” silhouette */
-    .city{
-      position:fixed; left:0; right:0; bottom:-40px;
-      height: 44vh;
-      pointer-events:none;
-      opacity:.65;
-      filter: drop-shadow(0 18px 70px rgba(0,0,0,.7));
+    /* Hero */
+    .hero{padding:56px 0 18px;}
+    .kicker{
+      color: rgba(255,255,255,.66);
+      font-size: 13px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+    h1{
+      margin:12px 0 10px;
+      font-size: clamp(34px, 4.5vw, 62px);
+      line-height:1.02;
+      letter-spacing:-1px;
+    }
+    .sub{
+      max-width: 70ch;
+      color: var(--muted);
+      font-size: 15.5px;
+      line-height:1.7;
+      margin:0;
+    }
+    .hero-cta{margin-top:18px; display:flex; gap:10px; flex-wrap:wrap;}
+    .hint{
+      margin-top:18px;
+      color: rgba(255,255,255,.52);
+      font-size: 12.5px;
     }
 
-    /* particles */
-    #fx{
-      position:fixed; inset:0;
-      pointer-events:none;
-      opacity:.9;
-      mix-blend-mode: screen;
-    }
-
-    /* cursor spotlight */
-    .spot{
-      position:fixed; inset:0;
-      pointer-events:none;
-      background: radial-gradient(520px 520px at var(--mx, 50%) var(--my, 30%),
-        rgba(53,245,255,.12), transparent 60%);
-      mix-blend-mode: screen;
-      opacity:.9;
-    }
-
-    /* neon trail layer */
-    #trail{
-      position:fixed; inset:0;
-      pointer-events:none;
-      opacity:.9;
-      mix-blend-mode: screen;
-    }
-
-    /* layout */
-    .wrap{
-      height:100%;
+    /* Sections */
+    section{padding:44px 0;}
+    .grid{
       display:grid;
-      place-items:center;
-      padding:28px 16px;
-      position:relative;
-      z-index:3;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 860px){
+      .grid{grid-template-columns:1fr}
     }
 
     .card{
-      width:min(1120px, 100%);
-      border-radius: var(--radius);
+      border:1px solid var(--line);
       background: var(--card);
-      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--r);
+      padding: 18px;
       box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
-      transform: translateZ(0);
     }
-
-    .topbar{
-      padding:16px 22px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-      background: linear-gradient(90deg, rgba(53,245,255,.10), rgba(184,107,255,.07), rgba(255,211,122,.05));
+    .title{
+      margin:0 0 8px;
+      font-size: 14px;
+      letter-spacing:.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.66);
     }
-    .left{display:flex; align-items:center; gap:10px;}
-    .dot{width:10px;height:10px;border-radius:50%}
-    .dot.red{background:#ff5f57}
-    .dot.yellow{background:#febc2e}
-    .dot.green{background:#28c840}
-    .brand{
-      margin-left:8px;
-      font-weight:800;
-      letter-spacing:.25px;
-      color: rgba(255,255,255,.86);
-      font-size: 13.5px;
-      text-shadow: 0 10px 30px rgba(0,0,0,.45);
-    }
-
-    .badge{
-      font-size:12px;
-      padding:7px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.18);
-      color: rgba(255,255,255,.76);
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      backdrop-filter: blur(10px);
-    }
-
-    .pulse{
-      width:9px;height:9px;border-radius:50%;
-      background: rgba(53,245,255,.95);
-      box-shadow: 0 0 0 0 rgba(53,245,255,.42);
-      animation: pulse 1.6s infinite;
-    }
-    @keyframes pulse{
-      0%{box-shadow:0 0 0 0 rgba(53,245,255,.42)}
-      70%{box-shadow:0 0 0 14px rgba(53,245,255,0)}
-      100%{box-shadow:0 0 0 0 rgba(53,245,255,0)}
-    }
-
-    .content{
-      padding:22px;
-      display:grid;
-      grid-template-columns: 1.08fr .92fr;
-      gap:18px;
-    }
-    @media (max-width: 940px){
-      .content{grid-template-columns:1fr; padding:16px}
-    }
-
-    .panel{
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.18);
-      position:relative;
-      overflow:hidden;
-    }
-
-    /* hero */
-    .hero{
-      padding:20px 18px;
-      min-height: 460px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-    }
-
-    h1{
+    .big{
       margin:0 0 10px;
-      font-size: clamp(28px, 3.8vw, 52px);
-      line-height:1.02;
-      letter-spacing:-1px;
-      text-shadow:
-        0 18px 60px rgba(0,0,0,.55),
-        0 0 22px rgba(53,245,255,.12);
+      font-size: 22px;
+      letter-spacing:-.3px;
     }
-    .subtitle{
-      margin:0 0 16px;
+    .p{
+      margin:0;
       color: var(--muted);
-      font-size: 15.5px;
-      line-height:1.6;
-      max-width: 70ch;
+      line-height:1.7;
+      font-size: 14.5px;
     }
 
-    .pillrow{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
-    .pill{
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.05);
-      color: rgba(255,255,255,.82);
-      padding:8px 12px;
-      border-radius:999px;
-      font-size:13px;
-      backdrop-filter: blur(10px);
-      transition: transform 160ms ease, border-color 160ms ease;
-      cursor:default;
+    /* Practice list */
+    .list{margin:12px 0 0; padding:0; list-style:none; display:grid; gap:10px;}
+    .li{
+      display:flex; justify-content:space-between; gap:12px;
+      padding:12px 12px;
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: 14px;
+      background: rgba(0,0,0,.14);
     }
-    .pill:hover{
-      transform: translateY(-2px);
-      border-color: rgba(255,255,255,.24);
-    }
+    .li b{font-weight:650}
+    .li span{color: rgba(255,255,255,.58); font-size: 13px}
 
-    .cta{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:16px;
-    }
-    .btn{
-      border:1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.06);
-      color: rgba(255,255,255,.92);
-      padding:10px 12px;
-      border-radius:14px;
-      text-decoration:none;
-      font-size:13px;
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      backdrop-filter: blur(12px);
-      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
-      user-select:none;
+    /* Sticky “principles” section (sumityadav-like) */
+    .sticky{
       position:relative;
-      overflow:hidden;
+      padding:0;
+      margin-top: 18px;
     }
-    .btn:hover{
-      transform: translateY(-2px);
-      background: rgba(255,255,255,.10);
-      border-color: rgba(255,255,255,.24);
+    .sticky-wrap{
+      display:grid;
+      grid-template-columns: .92fr 1.08fr;
+      gap: 16px;
+      align-items:start;
     }
-    .btn.primary{
-      background: linear-gradient(90deg, rgba(53,245,255,.20), rgba(184,107,255,.16), rgba(255,211,122,.12));
-      border-color: rgba(255,255,255,.20);
+    @media (max-width: 860px){
+      .sticky-wrap{grid-template-columns:1fr}
     }
-    .btn::after{
-      content:"";
-      position:absolute; inset:-40px -60px;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.10), transparent 55%);
-      opacity:0;
-      transition: opacity 180ms ease;
+    .sticky-left{
+      position: sticky;
+      top: 84px;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.16);
+      border-radius: var(--r);
+      padding: 18px;
+      box-shadow: var(--shadow);
     }
-    .btn:hover::after{opacity:1}
+    .sticky-left h2{
+      margin:6px 0 10px;
+      font-size: 30px;
+      letter-spacing:-.6px;
+      line-height:1.1;
+    }
+    .sticky-left p{margin:0; color: var(--muted); line-height:1.7; font-size:14.5px;}
 
-    /* right panel: countdown */
-    .count{
-      padding:18px;
-      min-height: 460px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
+    .steps{
+      display:grid;
+      gap: 12px;
     }
-    .label{
+    .step{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      border-radius: var(--r);
+      padding: 16px;
+      min-height: 120px;
+    }
+    .step .n{
       font-size:12px;
       letter-spacing:.22em;
       text-transform:uppercase;
+      color: rgba(255,255,255,.60);
+    }
+    .step h3{
+      margin:8px 0 8px;
+      font-size: 20px;
+      letter-spacing:-.3px;
+    }
+    .step p{
+      margin:0;
       color: rgba(255,255,255,.62);
-      margin-bottom:10px;
-    }
-    .timer{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap:10px;
-    }
-    .t{
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      border-radius:16px;
-      padding:14px 10px;
-      text-align:center;
-      transition: transform 160ms ease;
-    }
-    .t:hover{transform: translateY(-2px)}
-    .num{
-      font-variant-numeric: tabular-nums;
-      font-size: clamp(24px, 3.2vw, 38px);
-      font-weight: 900;
-      letter-spacing: -0.8px;
-    }
-    .unit{
-      margin-top:4px;
-      font-size:12px;
-      color: rgba(255,255,255,.64);
+      line-height:1.7;
+      font-size:14px;
     }
 
-    .progress{
-      margin-top:14px;
-      height:12px;
-      border-radius:999px;
-      background: rgba(255,255,255,.08);
-      overflow:hidden;
-      border: 1px solid rgba(255,255,255,.10);
-    }
-    .bar{
-      height:100%;
-      width:0%;
-      border-radius:999px;
-      background: linear-gradient(90deg, rgba(53,245,255,.95), rgba(184,107,255,.95), rgba(255,79,216,.75), rgba(255,211,122,.7));
-      transition: width 360ms ease;
-    }
+    /* Reveal */
+    .reveal{opacity:0; transform: translateY(10px); transition: opacity 600ms ease, transform 600ms ease;}
+    .reveal.on{opacity:1; transform: translateY(0);}
 
-    .status{
+    /* Footer */
+    footer{
+      margin-top:50px;
+      padding-top:18px;
+      border-top:1px solid rgba(255,255,255,.10);
+      color: rgba(255,255,255,.56);
+      font-size: 12.5px;
       display:flex;
       justify-content:space-between;
-      align-items:center;
-      margin-top:10px;
-      color: rgba(255,255,255,.72);
-      font-size:13px;
       gap:12px;
-    }
-    .mini{
-      color: rgba(255,255,255,.58);
-      font-size:12.5px;
-      line-height:1.55;
-      margin: 12px 0 0;
-    }
-
-    .footer{
-      padding:14px 22px 18px;
-      border-top:1px solid rgba(255,255,255,.08);
-      color: rgba(255,255,255,.55);
-      font-size:12.5px;
-      display:flex;
       flex-wrap:wrap;
-      gap:10px;
-      justify-content:space-between;
     }
-
-    /* --- Doodle construction scene --- */
-    .scene{
-      position:absolute;
-      right:-10px;
-      bottom:-22px;
-      width:min(560px, 78%);
-      aspect-ratio: 1.05/1;
-      opacity:.98;
-      filter: drop-shadow(0 20px 70px rgba(0,0,0,.62));
-      transform: translateZ(0);
-      pointer-events:none;
-    }
-
-    .scribble{
-      position:absolute;
-      left:10px;
-      top:12px;
-      width:220px;
-      opacity:.85;
-      transform-origin: 20% 20%;
-      animation: scribble 6.5s ease-in-out infinite;
-      pointer-events:none;
-    }
-    @keyframes scribble{
-      0%,100%{transform: rotate(-1deg) translateY(0)}
-      50%{transform: rotate(1deg) translateY(8px)}
-    }
-
-    /* Glitch layer toggle */
-    .glitch::before{
-      content:"";
-      position:absolute; inset:0;
-      background:
-        linear-gradient(90deg, rgba(53,245,255,.06), transparent 35%),
-        linear-gradient(270deg, rgba(255,79,216,.05), transparent 38%);
-      mix-blend-mode: screen;
-      opacity:.75;
-      pointer-events:none;
-    }
-    .glitching{
-      animation: glitch 2.8s infinite;
-    }
-    @keyframes glitch{
-      0%,100%{filter:none}
-      6%{filter: hue-rotate(8deg) saturate(1.1)}
-      7%{transform: translateX(1px)}
-      8%{transform: translateX(-1px)}
-      9%{transform:none}
-      52%{filter: hue-rotate(-8deg) saturate(1.15)}
-      54%{transform: translateY(1px)}
-      56%{transform: translateY(-1px)}
-      58%{transform:none}
-    }
-
-    /* Toast */
-    .toast{
-      position:fixed;
-      left:50%;
-      bottom:18px;
-      transform: translateX(-50%);
-      background: rgba(0,0,0,.55);
-      border: 1px solid rgba(255,255,255,.16);
-      color: rgba(255,255,255,.88);
-      padding:10px 12px;
-      border-radius:14px;
-      font-size:13px;
-      backdrop-filter: blur(12px);
-      opacity:0;
-      pointer-events:none;
-      transition: opacity 220ms ease, transform 220ms ease;
-      z-index:99;
-    }
-    .toast.show{
-      opacity:1;
-      transform: translateX(-50%) translateY(-6px);
-    }
+    .mono{font-variant-numeric: tabular-nums; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
   </style>
 </head>
 
 <body>
-  <div class="aurora"></div>
-  <div class="scanlines"></div>
-  <div class="spot"></div>
-  <canvas id="fx"></canvas>
-  <canvas id="trail"></canvas>
-  <div class="vignette"></div>
+  <div class="grain"></div>
 
-  <!-- City silhouette -->
-  <svg class="city" viewBox="0 0 1200 420" preserveAspectRatio="none" aria-hidden="true">
-    <defs>
-      <linearGradient id="cityGlow" x1="0" x2="0" y1="0" y2="1">
-        <stop offset="0" stop-color="rgba(255,255,255,.12)"/>
-        <stop offset="1" stop-color="rgba(0,0,0,0)"/>
-      </linearGradient>
-    </defs>
-    <path fill="rgba(0,0,0,.65)" d="M0,280 L60,240 L90,260 L110,220 L160,235 L200,190 L240,210 L290,160 L340,200 L390,150 L430,175 L470,130 L520,170 L560,120 L610,160 L650,110 L700,150 L750,105 L790,145 L840,115 L880,150 L920,120 L960,155 L1010,120 L1060,170 L1110,145 L1160,190 L1200,180 L1200,420 L0,420 Z"/>
-    <path fill="url(#cityGlow)" d="M0,280 L60,240 L90,260 L110,220 L160,235 L200,190 L240,210 L290,160 L340,200 L390,150 L430,175 L470,130 L520,170 L560,120 L610,160 L650,110 L700,150 L750,105 L790,145 L840,115 L880,150 L920,120 L960,155 L1010,120 L1060,170 L1110,145 L1160,190 L1200,180 L1200,420 L0,420 Z"/>
-  </svg>
-
-  <div class="wrap">
-    <div class="card glitch" id="card">
-      <div class="topbar">
-        <div class="left">
-          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-          <span class="brand">www.rakshitrajchauhan.com</span>
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="mark">R</div>
+        <div>
+          <div style="font-size:13.5px; line-height:1;">Rakshit Raj Chauhan</div>
+          <div style="font-size:12px; color:rgba(255,255,255,.55); line-height:1.2;">Advocate</div>
         </div>
-        <div class="badge"><span class="pulse"></span><span id="modeText">NEON BUILD</span></div>
       </div>
 
-      <div class="content">
-        <!-- LEFT -->
-        <section class="panel hero">
-          <div>
-            <h1>Cyberpunk. Royal. Under Construction.</h1>
-            <p class="subtitle">
-              A premium profile is being forged in neon — with a royal finish.
-              The crew is building it live. Countdown below.
-            </p>
-
-            <div class="pillrow">
-              <span class="pill">Advocacy</span>
-              <span class="pill">Litigation</span>
-              <span class="pill">Drafting</span>
-              <span class="pill">Consultation</span>
-              <span class="pill">Gurugram • P&H High Court</span>
-            </div>
-
-            <div class="cta">
-              <a class="btn primary" href="mailto:youremail@example.com">✉️ Email</a>
-              <a class="btn" href="#" onclick="copyLink(event)">🔗 Copy Link</a>
-              <a class="btn" href="#" onclick="toggleGlitch(event)">⚡ Glitch</a>
-              <a class="btn" href="#" onclick="royalBurst(event)">👑 Royal Burst</a>
-            </div>
-
-            <p class="mini">
-              Want this to launch on a fixed date/time (same for everyone)? Tell me the exact launch moment in IST.
-            </p>
-          </div>
-
-          <!-- Blueprint doodle -->
-          <svg class="scribble" viewBox="0 0 260 180" aria-hidden="true">
-            <path d="M18 30 C 60 14, 92 18, 120 30 C 155 45, 188 40, 232 26"
-                  fill="none" stroke="rgba(53,245,255,.55)" stroke-width="2" stroke-linecap="round"/>
-            <path d="M20 60 L240 60" stroke="rgba(255,211,122,.38)" stroke-width="2" stroke-linecap="round"/>
-            <path d="M30 90 C 70 80, 100 95, 140 92 C 180 90, 205 70, 238 82"
-                  fill="none" stroke="rgba(184,107,255,.52)" stroke-width="2" stroke-linecap="round"/>
-            <path d="M28 130 L120 130 L140 110 L232 110"
-                  fill="none" stroke="rgba(255,79,216,.32)" stroke-width="2" stroke-linecap="round"/>
-            <text x="18" y="160" fill="rgba(255,255,255,.55)" font-size="11" style="letter-spacing:.22em">BLUEPRINT</text>
-          </svg>
-
-          <!-- Doodle Construction Scene -->
-          <svg class="scene" viewBox="0 0 600 560" aria-hidden="true">
-            <defs>
-              <filter id="glow">
-                <feGaussianBlur stdDeviation="3" result="b"/>
-                <feMerge>
-                  <feMergeNode in="b"/>
-                  <feMergeNode in="SourceGraphic"/>
-                </feMerge>
-              </filter>
-            </defs>
-
-            <!-- Neon frame -->
-            <rect x="70" y="90" rx="18" ry="18" width="460" height="310"
-              fill="rgba(0,0,0,.18)" stroke="rgba(255,255,255,.14)" stroke-width="2"/>
-            <rect x="84" y="106" rx="14" ry="14" width="432" height="278"
-              fill="rgba(255,255,255,.03)" stroke="rgba(53,245,255,.22)" stroke-width="2" filter="url(#glow)"/>
-
-            <!-- UI doodles inside -->
-            <path d="M110 140 L490 140" stroke="rgba(255,255,255,.10)" stroke-width="2"/>
-            <circle cx="125" cy="124" r="6" fill="rgba(255,79,216,.72)"/>
-            <circle cx="145" cy="124" r="6" fill="rgba(255,211,122,.72)"/>
-            <circle cx="165" cy="124" r="6" fill="rgba(53,245,255,.72)"/>
-
-            <rect x="110" y="165" width="170" height="26" rx="12" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.12)"/>
-            <rect x="110" y="205" width="280" height="18" rx="9" fill="rgba(255,255,255,.04)"/>
-            <rect x="110" y="232" width="230" height="18" rx="9" fill="rgba(255,255,255,.04)"/>
-            <rect x="110" y="259" width="250" height="18" rx="9" fill="rgba(255,255,255,.04)"/>
-            <rect x="110" y="300" width="120" height="36" rx="14" fill="rgba(53,245,255,.10)" stroke="rgba(53,245,255,.22)"/>
-            <rect x="240" y="300" width="120" height="36" rx="14" fill="rgba(184,107,255,.09)" stroke="rgba(184,107,255,.22)"/>
-
-            <!-- Crane -->
-            <path d="M60 420 L120 180" stroke="rgba(255,255,255,.18)" stroke-width="4" stroke-linecap="round"/>
-            <path d="M120 180 L260 180" stroke="rgba(255,255,255,.18)" stroke-width="4" stroke-linecap="round"/>
-            <path d="M60 420 L200 420" stroke="rgba(255,255,255,.10)" stroke-width="5" stroke-linecap="round"/>
-            <path id="hookLine" d="M250 180 L250 260" stroke="rgba(255,211,122,.55)" stroke-width="2" stroke-linecap="round"/>
-            <rect id="hook" x="238" y="260" width="24" height="22" rx="6" fill="rgba(255,211,122,.22)" stroke="rgba(255,211,122,.55)"/>
-
-            <!-- Worker (doodle) -->
-            <g id="worker" transform="translate(360 410)">
-              <circle cx="0" cy="-72" r="18" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.22)" stroke-width="2"/>
-              <path d="M-18 -74 L18 -74" stroke="rgba(53,245,255,.55)" stroke-width="2" stroke-linecap="round"/>
-              <path d="M-10 -84 L10 -84" stroke="rgba(255,211,122,.55)" stroke-width="2" stroke-linecap="round"/>
-              <path d="M-8 -66 C -2 -60, 2 -60, 8 -66" stroke="rgba(255,79,216,.45)" stroke-width="2" fill="none" stroke-linecap="round"/>
-
-              <path d="M-20 -50 L20 -50 L10 -10 L-10 -10 Z"
-                    fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.18)" stroke-width="2"/>
-              <path d="M-26 -40 L-52 -22" stroke="rgba(255,255,255,.20)" stroke-width="4" stroke-linecap="round"/>
-              <path id="arm" d="M26 -40 L54 -20" stroke="rgba(255,255,255,.22)" stroke-width="4" stroke-linecap="round"/>
-
-              <!-- Hammer -->
-              <g id="hammer" transform="translate(60 -14)">
-                <rect x="-4" y="-28" width="8" height="34" rx="4" fill="rgba(255,211,122,.45)"/>
-                <rect x="-16" y="-38" width="32" height="12" rx="5" fill="rgba(53,245,255,.22)" stroke="rgba(53,245,255,.55)"/>
-              </g>
-
-              <path d="M-12 -10 L-18 40" stroke="rgba(255,255,255,.22)" stroke-width="5" stroke-linecap="round"/>
-              <path d="M12 -10 L18 40" stroke="rgba(255,255,255,.22)" stroke-width="5" stroke-linecap="round"/>
-              <path d="M-22 40 L-4 40" stroke="rgba(255,79,216,.28)" stroke-width="4" stroke-linecap="round"/>
-              <path d="M4 40 L22 40" stroke="rgba(184,107,255,.28)" stroke-width="4" stroke-linecap="round"/>
-            </g>
-
-            <!-- Welding sparks -->
-            <g id="sparks" opacity="0">
-              <circle cx="416" cy="344" r="3" fill="rgba(255,211,122,.85)"/>
-              <circle cx="430" cy="336" r="2" fill="rgba(53,245,255,.85)"/>
-              <circle cx="438" cy="352" r="2" fill="rgba(255,79,216,.85)"/>
-              <circle cx="452" cy="342" r="2" fill="rgba(184,107,255,.85)"/>
-            </g>
-          </svg>
-        </section>
-
-        <!-- RIGHT -->
-        <section class="panel count">
-          <div>
-            <div class="label">Launch in</div>
-            <div class="timer" aria-live="polite">
-              <div class="t"><div class="num" id="d">10</div><div class="unit">Days</div></div>
-              <div class="t"><div class="num" id="h">00</div><div class="unit">Hours</div></div>
-              <div class="t"><div class="num" id="m">00</div><div class="unit">Minutes</div></div>
-              <div class="t"><div class="num" id="s">00</div><div class="unit">Seconds</div></div>
-            </div>
-
-            <div class="progress"><div class="bar" id="bar"></div></div>
-
-            <div class="status">
-              <span id="statusText">Crew online…</span>
-              <span id="etaText">~10 days</span>
-            </div>
-
-            <p class="mini">
-              Tip: click <b>Royal Burst</b> for a crown-mode flare + extra sparks.
-            </p>
-          </div>
-
-          <div class="cta">
-            <a class="btn" href="#" onclick="resetCountdown(event)">↻ Reset 10-day Timer</a>
-            <a class="btn" href="#" onclick="reseed(event)">✳️ Reseed Particles</a>
-          </div>
-        </section>
-      </div>
-
-      <div class="footer">
-        <span>© <span id="year"></span> Rakshit Raj Chauhan</span>
-        <span>Cyberpunk Launch • GitHub Pages</span>
-      </div>
+      <nav class="navlinks">
+        <a href="#practice">Practice</a>
+        <a href="#approach">Approach</a>
+        <a href="#highlights">Highlights</a>
+        <a href="#contact">Contact</a>
+        <a class="btn" href="#contact">Let’s talk ↗</a>
+      </nav>
     </div>
-  </div>
+  </header>
 
-  <div class="toast" id="toast">OK</div>
+  <main class="wrap">
+    <section class="hero">
+      <div class="kicker">Gurugram • Punjab & Haryana High Court</div>
+      <h1>I argue with clarity.<br/>I draft with precision.</h1>
+      <p class="sub">
+        Advocate handling civil and criminal matters with a litigation-first mindset:
+        clean strategy, disciplined pleadings, and relentless follow-through.
+      </p>
+
+      <div class="hero-cta">
+        <a class="btn" href="#contact">Book a consult</a>
+        <a class="btn" href="#" id="copyLink">Copy website link</a>
+        <a class="btn" href="#practice">Explore practice</a>
+      </div>
+
+      <div class="hint">Scroll — the page reveals itself section by section.</div>
+    </section>
+
+    <section id="practice" class="reveal">
+      <div class="grid">
+        <div class="card">
+          <div class="title">Practice</div>
+          <div class="big">Areas of work</div>
+          <p class="p">Focused practice across trial courts and the High Court, with emphasis on procedure, evidence, and outcomes.</p>
+
+          <ul class="list">
+            <li class="li"><b>Civil Litigation</b><span>injunctions • property • declaration</span></li>
+            <li class="li"><b>Criminal Defense</b><span>bail • trial • quashing</span></li>
+            <li class="li"><b>NDPS Matters</b><span>commercial quantity • bail • trial</span></li>
+            <li class="li"><b>Land Acquisition</b><span>enhancement • references • writs</span></li>
+            <li class="li"><b>Commercial & Recovery</b><span>NI-138 • suits • execution</span></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="title">Availability</div>
+          <div class="big">Consultation & briefing</div>
+          <p class="p">
+            Briefs accepted on short notice where urgency and documentation are clear.
+            For consultations: share documents, timeline, and relief sought.
+          </p>
+          <div style="height:12px"></div>
+          <div class="li"><b>Typical response</b><span>same day / next day</span></div>
+          <div style="height:10px"></div>
+          <div class="li"><b>Preferred format</b><span>PDF + chronology + annexures</span></div>
+          <div style="height:10px"></div>
+          <div class="li"><b>Courts</b><span>Gurugram • Nuh • P&H High Court</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="approach" class="sticky reveal">
+      <div class="sticky-wrap">
+        <div class="sticky-left">
+          <div class="title">Approach</div>
+          <h2>If it moves, it must move for a reason.</h2>
+          <p>
+            I treat litigation like a structured system: facts, law, procedure, evidence.
+            Every application must earn its place; every hearing must advance the case.
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step reveal">
+            <div class="n">01 • Structure</div>
+            <h3>Chronology first, always</h3>
+            <p>Before drafting: dates, documents, admissions, and the “one-page case theory”.</p>
+          </div>
+
+          <div class="step reveal">
+            <div class="n">02 • Procedure</div>
+            <h3>Correct relief, correct forum</h3>
+            <p>Maintainability, limitation, jurisdiction, and interim strategy are checked early.</p>
+          </div>
+
+          <div class="step reveal">
+            <div class="n">03 • Drafting</div>
+            <h3>Clean pleadings, strong annexures</h3>
+            <p>Short paragraphs. Proof-backed assertions. No unnecessary fluff.</p>
+          </div>
+
+          <div class="step reveal">
+            <div class="n">04 • Execution</div>
+            <h3>Relentless follow-through</h3>
+            <p>Orders are only useful if they are implemented: compliance, execution, next steps.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="highlights" class="reveal">
+      <div class="grid">
+        <div class="card">
+          <div class="title">Highlights</div>
+          <div class="big">What this website will include</div>
+          <p class="p">
+            I’m building a clean public profile + resources page for clients and colleagues.
+          </p>
+          <ul class="list">
+            <li class="li"><b>Case-type explainers</b><span>NDPS • CPC • evidence</span></li>
+            <li class="li"><b>Client onboarding</b><span>document checklist • timelines</span></li>
+            <li class="li"><b>Selected work</b><span>drafts • petitions • notices</span></li>
+            <li class="li"><b>Contact & scheduling</b><span>WhatsApp • email</span></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="title">Now</div>
+          <div class="big">Under construction</div>
+          <p class="p">
+            The full site is being assembled. For now, use the contact section below to reach me directly.
+          </p>
+          <div style="height:14px"></div>
+          <div class="li"><b>Status</b><span class="mono">v0.1 landing</span></div>
+          <div style="height:10px"></div>
+          <div class="li"><b>Next update</b><span class="mono">profile + resources</span></div>
+          <div style="height:10px"></div>
+          <div class="li"><b>Hosting</b><span class="mono">GitHub Pages</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="reveal">
+      <div class="card">
+        <div class="title">Contact</div>
+        <div class="big">Let’s talk</div>
+        <p class="p">
+          Email is the cleanest channel for briefs and documents. For urgent matters, include “URGENT” in the subject line.
+        </p>
+
+        <div style="height:14px"></div>
+
+        <div class="grid">
+          <div class="li">
+            <b>Email</b>
+            <span><a href="mailto:youremail@example.com">youremail@example.com</a></span>
+          </div>
+          <div class="li">
+            <b>Phone / WhatsApp</b>
+            <span class="mono">+91-XXXXXXXXXX</span>
+          </div>
+          <div class="li">
+            <b>Location</b>
+            <span>Gurugram, Haryana</span>
+          </div>
+          <div class="li">
+            <b>LinkedIn</b>
+            <span><a href="#" target="_blank" rel="noreferrer">add your link</a></span>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div>© <span id="year"></span> Rakshit Raj Chauhan</div>
+        <div class="mono">rakshitrajchauhan.com</div>
+      </footer>
+    </section>
+  </main>
 
   <script>
-    /**********************
-     * Spotlight + 3D tilt
-     **********************/
-    const spot = document.querySelector('.spot');
-    const card = document.getElementById('card');
-    const trailCanvas = document.getElementById('trail');
-    const tctx = trailCanvas.getContext('2d');
-
-    function sizeTrail(){
-      trailCanvas.width = innerWidth * devicePixelRatio;
-      trailCanvas.height = innerHeight * devicePixelRatio;
-      trailCanvas.style.width = innerWidth + 'px';
-      trailCanvas.style.height = innerHeight + 'px';
-    }
-    addEventListener('resize', sizeTrail);
-    sizeTrail();
-
-    let last = {x: innerWidth/2, y: innerHeight/2};
-    addEventListener('mousemove', (e)=>{
-      const mx = (e.clientX / innerWidth)*100;
-      const my = (e.clientY / innerHeight)*100;
-      spot.style.setProperty('--mx', mx + '%');
-      spot.style.setProperty('--my', my + '%');
-
-      const rect = card.getBoundingClientRect();
-      const cx = rect.left + rect.width/2;
-      const cy = rect.top + rect.height/2;
-      const dx = (e.clientX - cx) / rect.width;
-      const dy = (e.clientY - cy) / rect.height;
-      card.style.transform = `perspective(1300px) rotateY(${dx*5}deg) rotateX(${(-dy)*4}deg)`;
-
-      // neon trail
-      const x = e.clientX * devicePixelRatio;
-      const y = e.clientY * devicePixelRatio;
-      drawTrail(last.x*devicePixelRatio, last.y*devicePixelRatio, x, y);
-      last = {x: e.clientX, y: e.clientY};
-    });
-    addEventListener('mouseleave', ()=> card.style.transform = 'none');
-
-    function drawTrail(x0,y0,x1,y1){
-      tctx.globalCompositeOperation = 'lighter';
-      tctx.lineCap = 'round';
-      tctx.lineWidth = 10 * devicePixelRatio;
-      // no fixed color requested? We use white + blend; background gives neon feel
-      tctx.strokeStyle = 'rgba(255,255,255,0.22)';
-      tctx.beginPath();
-      tctx.moveTo(x0,y0);
-      tctx.lineTo(x1,y1);
-      tctx.stroke();
-    }
-    function fadeTrail(){
-      tctx.globalCompositeOperation = 'source-over';
-      tctx.fillStyle = 'rgba(0,0,0,0.10)';
-      tctx.fillRect(0,0,trailCanvas.width, trailCanvas.height);
-      requestAnimationFrame(fadeTrail);
-    }
-    fadeTrail();
-
-    /**********************
-     * Particles (spark dust)
-     **********************/
-    const fx = document.getElementById('fx');
-    const ctx = fx.getContext('2d');
-    let W=0,H=0,particles=[];
-    function resize(){
-      W = fx.width = innerWidth * devicePixelRatio;
-      H = fx.height = innerHeight * devicePixelRatio;
-      fx.style.width = innerWidth+'px';
-      fx.style.height = innerHeight+'px';
-    }
-    addEventListener('resize', resize);
-    resize();
-
-    function rand(a,b){ return a + Math.random()*(b-a); }
-
-    function seed(){
-      particles = [];
-      const count = Math.min(150, Math.floor((innerWidth*innerHeight)/12000));
-      for(let i=0;i<count;i++){
-        particles.push({
-          x: rand(0,W), y: rand(0,H),
-          r: rand(0.8, 2.6) * devicePixelRatio,
-          vx: rand(-0.14,0.14) * devicePixelRatio,
-          vy: rand(0.06,0.30) * devicePixelRatio,
-          a: rand(0, Math.PI*2),
-          tw: rand(0.006, 0.018)
-        });
-      }
-    }
-    seed();
-
-    function draw(){
-      ctx.clearRect(0,0,W,H);
-      ctx.globalCompositeOperation = 'lighter';
-      for(const p of particles){
-        p.x += p.vx;
-        p.y += p.vy;
-        if(p.y > H+20) p.y = -20;
-        if(p.x > W+20) p.x = -20;
-        if(p.x < -20) p.x = W+20;
-        p.a += p.tw;
-        const alpha = 0.22 + 0.22*Math.sin(p.a);
-        ctx.globalAlpha = alpha;
-        ctx.beginPath();
-        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-        ctx.fillStyle = '#ffffff';
-        ctx.fill();
-      }
-      requestAnimationFrame(draw);
-    }
-    draw();
-
-    function reseed(e){
-      e.preventDefault();
-      seed();
-      toast("Particles reseeded.");
-    }
-
-    /**********************
-     * Countdown: 10 days from first visit per device
-     **********************/
-    const STORAGE_KEY = "rrc_launch_target_cyber_v1";
-    const TEN_DAYS_MS = 10 * 24 * 60 * 60 * 1000;
-
-    const elD = document.getElementById("d");
-    const elH = document.getElementById("h");
-    const elM = document.getElementById("m");
-    const elS = document.getElementById("s");
-    const elBar = document.getElementById("bar");
-    const elStatus = document.getElementById("statusText");
-    const elEta = document.getElementById("etaText");
-    const modeText = document.getElementById("modeText");
+    // Year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    function pad(n){ return String(n).padStart(2, "0"); }
-    function getOrCreateTarget(){
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved){
-        const t = Number(saved);
-        if (!Number.isNaN(t) && t > Date.now()) return t;
+    // Copy link
+    document.getElementById("copyLink").addEventListener("click", (e) => {
+      e.preventDefault();
+      navigator.clipboard.writeText(location.href).then(() => {
+        const old = e.target.textContent;
+        e.target.textContent = "Copied ✓";
+        setTimeout(() => (e.target.textContent = old), 1200);
+      });
+    });
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      for (const ent of entries){
+        if(ent.isIntersecting) ent.target.classList.add("on");
       }
-      const target = Date.now() + TEN_DAYS_MS;
-      localStorage.setItem(STORAGE_KEY, String(target));
-      return target;
-    }
-    let target = getOrCreateTarget();
+    }, { threshold: 0.14 });
 
-    const statuses = [
-      "Crew online…",
-      "Blueprints compiling…",
-      "Neon plating applied…",
-      "Crown-grade polish…",
-      "Security hardening…",
-      "Final render pass…"
-    ];
-    function tick(){
-      const now = Date.now();
-      let diff = target - now;
-
-      if (diff <= 0){
-        elD.textContent = "00"; elH.textContent = "00"; elM.textContent = "00"; elS.textContent = "00";
-        elBar.style.width = "100%";
-        elStatus.textContent = "Launch-ready.";
-        elEta.textContent = "Deploying…";
-        modeText.textContent = "LAUNCH";
-        return;
-      }
-
-      const days = Math.floor(diff / (24*60*60*1000));
-      diff -= days * (24*60*60*1000);
-      const hrs = Math.floor(diff / (60*60*1000));
-      diff -= hrs * (60*60*1000);
-      const mins = Math.floor(diff / (60*1000));
-      diff -= mins * (60*1000);
-      const secs = Math.floor(diff / 1000);
-
-      elD.textContent = pad(days);
-      elH.textContent = pad(hrs);
-      elM.textContent = pad(mins);
-      elS.textContent = pad(secs);
-
-      const elapsed = Math.min(TEN_DAYS_MS, Math.max(0, now - (target - TEN_DAYS_MS)));
-      const pct = (elapsed / TEN_DAYS_MS) * 100;
-      elBar.style.width = pct.toFixed(2) + "%";
-
-      // rotate statuses
-      const idx = Math.floor((now/4000) % statuses.length);
-      elStatus.textContent = statuses[idx];
-      elEta.textContent = `~${days} days`;
-      modeText.textContent = "NEON BUILD";
-    }
-    tick();
-    setInterval(tick, 1000);
-
-    function resetCountdown(e){
-      e.preventDefault();
-      target = Date.now() + TEN_DAYS_MS;
-      localStorage.setItem(STORAGE_KEY, String(target));
-      toast("Timer reset to 10 days.");
-    }
-
-    /**********************
-     * Doodle animations (worker hammer + sparks + crane hook)
-     **********************/
-    const arm = document.getElementById('arm');
-    const hammer = document.getElementById('hammer');
-    const sparks = document.getElementById('sparks');
-    const hookLine = document.getElementById('hookLine');
-    const hook = document.getElementById('hook');
-
-    let t = 0;
-    function animateDoodles(){
-      t += 0.035;
-
-      // hammering motion
-      const swing = Math.sin(t) * 10;
-      hammer.setAttribute('transform', `translate(60 -14) rotate(${swing} 0 0)`);
-      arm.setAttribute('d', `M26 -40 L${54 + swing*0.6} ${-20 + swing*0.15}`);
-
-      // sparks pulse
-      const sparkOn = Math.sin(t*2.2) > 0.72;
-      sparks.setAttribute('opacity', sparkOn ? '1' : '0');
-
-      // crane hook bob
-      const bob = (Math.sin(t*1.2) * 10);
-      hookLine.setAttribute('d', `M250 180 L250 ${260 + bob}`);
-      hook.setAttribute('y', String(260 + bob));
-
-      requestAnimationFrame(animateDoodles);
-    }
-    animateDoodles();
-
-    /**********************
-     * Glitch + Royal burst
-     **********************/
-    let glitch = false;
-    function toggleGlitch(e){
-      e.preventDefault();
-      glitch = !glitch;
-      card.classList.toggle('glitching', glitch);
-      toast(glitch ? "Glitch ON ⚡" : "Glitch OFF");
-    }
-
-    function royalBurst(e){
-      e.preventDefault();
-      toast("Royal Burst 👑");
-      // add temporary extra particles
-      const old = particles.length;
-      for(let i=0;i<55;i++){
-        particles.push({
-          x: rand(0,W), y: rand(0,H),
-          r: rand(1.0, 3.2) * devicePixelRatio,
-          vx: rand(-0.30,0.30) * devicePixelRatio,
-          vy: rand(0.02,0.42) * devicePixelRatio,
-          a: rand(0, Math.PI*2),
-          tw: rand(0.012, 0.028)
-        });
-      }
-      modeText.textContent = "ROYAL MODE";
-      setTimeout(()=>{
-        particles = particles.slice(0, old);
-        modeText.textContent = "NEON BUILD";
-      }, 1800);
-    }
-
-    function copyLink(e){
-      e.preventDefault();
-      navigator.clipboard.writeText(location.href).then(()=> toast("Link copied."));
-    }
-
-    function toast(msg){
-      const t = document.getElementById("toast");
-      t.textContent = msg;
-      t.classList.add("show");
-      setTimeout(()=> t.classList.remove("show"), 1500);
-    }
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
   </script>
 </body>
 </html>
