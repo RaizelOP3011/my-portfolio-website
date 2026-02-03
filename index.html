@@ -439,7 +439,38 @@
     });
 
     // WhatsApp with prefilled message (user's exact text)
-    const waMsg = "Greeting! i would like to get an apointment and sicuss a matter";
+    const waMsg = "Namaskar Sir / Ma’am. I would like to request an appointment to discuss a legal matter.
+
+Requested time to meet: __________________________
+Preferred mode: ☐ Call ☐ Video Call ☐ In-person (Location: ____________)
+
+My current legal position: _________________________
+(Example: Plaintiff / Defendant / Accused / Complainant / Respondent / Witness / Legal heir / Buyer / Seller)
+
+Brief of the matter (2–5 lines): ___________________
+_______________________________________________
+
+Matter type: ____________________________________
+(Civil / Criminal / Family / Property / Cheque bounce / NDPS / Service / Company / Other: ________)
+
+Stage/status: ____________________________________
+(Notice received / FIR registered / Case filed / Evidence stage / Appeal / Execution / Pre-litigation)
+
+Key dates (if any): _______________________________
+Court/Police Station (if any): _____________________
+
+Documents available: _____________________________
+(Agreement, notices, FIR, orders, screenshots, medical, etc.)
+
+Urgency level: ☐ Immediate (24–48 hrs) ☐ This week ☐ Normal
+
+I propose a legal fee of: ₹_________________________
+(Or: Kindly share your professional fee structure.)
+
+Thank you. I will share documents as per your guidance.
+Name: __________________  City: __________________
+Mobile: __________________
+";
     document.getElementById("waBtn").href =
       "https://wa.me/918901065284?text=" + encodeURIComponent(waMsg);
 
