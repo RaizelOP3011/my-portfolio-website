@@ -369,7 +369,7 @@
 
         <div class="actions">
           <a class="btn gold" id="connectEmail" href="#">Connect (Email)</a>
-          <a class="btn" id="waBtn" href="#" rel="noreferrer">WhatsApp</a>
+          <a class="btn" id="waBtn" href="#" rel="noreferrer">WhatsApp (Send Brief)</a>
           <a class="btn" href="tel:+918901065284">Call</a>
           <a class="btn" href="#" id="copyLink">Copy website link</a>
         </div>
@@ -438,8 +438,8 @@
       window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
     });
 
-    // WhatsApp with prefilled message (user's exact text)
-    const waMsg = "Namaskar Sir / Ma’am. I would like to request an appointment to discuss a legal matter.
+    // WhatsApp with prefilled message (fixed: template string for multi-line)
+    const waMsg = `Namaskar Sir / Ma’am. I would like to request an appointment to discuss a legal matter.
 
 Requested time to meet: __________________________
 Preferred mode: ☐ Call ☐ Video Call ☐ In-person (Location: ____________)
@@ -469,8 +469,7 @@ I propose a legal fee of: ₹_________________________
 
 Thank you. I will share documents as per your guidance.
 Name: __________________  City: __________________
-Mobile: __________________
-";
+Mobile: __________________`;
     document.getElementById("waBtn").href =
       "https://wa.me/918901065284?text=" + encodeURIComponent(waMsg);
 
